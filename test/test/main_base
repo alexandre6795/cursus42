@@ -1,5 +1,0 @@
-int main()
-{
-	printf("real%d\n",);
-	printf("real%d\n",);
-}
