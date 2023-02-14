@@ -5,14 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/16 11:15:44 by aherrman          #+#    #+#             */
-/*   Updated: 2022/12/16 11:26:38 by aherrman         ###   ########.fr       */
+/*   Created: 2022/12/22 11:19:01 by aherrman          #+#    #+#             */
+/*   Updated: 2023/01/06 15:22:38 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "printf.h"
+#include"ft_printf.h"
 
-int pft_putc(const char c)
+int	pft_putc(char c)
 {
-	write(1,c,ft_strlen(c));
-	return (ft_strlen(c);
+	return (write(1, &c, 1));
 }

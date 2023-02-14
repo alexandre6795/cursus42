@@ -6,50 +6,60 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:35:55 by aherrman          #+#    #+#             */
-/*   Updated: 2022/12/16 11:55:45 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/01/14 14:01:53 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"printf.h"
+#include"ft_printf.h"
 
-static int ft_tri (const char *attribut,va_list list)
+static int	ft_tri(const char *attribut, va_list list)
 {
-	int nbchar ;
-	nbchar = 0;
-   if ((attribut == c) || (attributs == s)
-	   nbchar = ft_putc(va_arg(list,char*));
-   else if (attributs == p)
+	int	nb_char ;
 
-   else if ((attributs == d) || (attributs == u))
+	nb_char = 0;
+	if (*attribut == 'c')
+		nb_char = pft_putc((char)va_arg(list, int));
+	else if (*attribut == 's')
+		nb_char = pft_puts((char *)va_arg(list, char *));
+	else if (*attribut == 'p')
+		nb_char += pft_putpnb(va_arg(list, unsigned long long int), 0);
+	else if (*attribut == 'u')
+		nb_char = pft_putunb((unsigned int)va_arg(list, unsigned int));
+	else if ((*attribut == 'i') || (*attribut == 'd'))
+		nb_char = pft_putnb((int)va_arg(list, int));
+	else if (*attribut == 'x')
+		nb_char = pft_putxnb((unsigned int)va_arg(list, unsigned int), 0);
+	else if (*attribut == 'X')
+		nb_char = pft_putxnb((unsigned int)va_arg(list, unsigned int), 1);
+	else
+		nb_char += write(1, attribut, 1);
+	return (nb_char);
+}
 
-   else if (attributs == i)
-   fp_putnbr((int)va_arg(list,int);
-
-   else if (attributs == x)
-
-   else if (attributs == X)
-
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	va_list list;
-	int nbchar;
-	char c;
+	va_list	list;
+	int		nb_char;
+	int		temp;
 
-	va_start (list,*format);
-	nbchar = 0;
-
+	va_start (list, format);
+	nb_char = 0;
 	while ((*format) != '\0')
 	{
-		c = *format;
-		format++;
-		if(c !='%')
+		if (*format != '%')
 		{
-			ft_putchar(c);
-			nbchar++;
+			if (pft_putc(*format) == -1)
+				return (-1);
+			nb_char++;
 		}
 		else
-			nbchar += ft_tri(*format,list);
+		{
+			temp = ft_tri(++format, list);
+			if (temp == -1)
+				return (-1);
+			nb_char += temp;
+		}
+		format++;
 	}
-	va_end(list)
-
-
-
+	va_end(list);
+	return (nb_char);
+}
