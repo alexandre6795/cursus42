@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:27:28 by aherrman          #+#    #+#             */
-/*   Updated: 2023/02/14 11:02:46 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:25:32 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
-	static t_list	*stash = NULL;
+	static t_list	*stash[4096];
 	char			*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
 	{
-		ft_free_stash_or_len(&stash, NULL, 0);
-		stash = NULL;
+		ft_free_stash_or_len(&stash[fd], NULL, 0);
+		stash[fd] = NULL;
 		return (NULL);
 	}
 	line = NULL;
-	ft_read_and_stash(fd, &stash);
-	if (stash == NULL)
+	ft_read_and_stash(fd, &stash[fd]);
+	if (stash[fd] == NULL)
 		return (NULL);
-	ft_extract_line(stash, &line);
-	ft_clean_stash(&stash, 0, 0, (t_list *[2]){NULL, NULL});
+	ft_extract_line(stash[fd], &line);
+	ft_clean_stash(&stash[fd], 0, 0, (t_list *[2]){NULL, NULL});
 	if (!line || line[0] == '\0')
 	{
-		ft_free_stash_or_len(&stash, NULL, 0);
+		ft_free_stash_or_len(&stash[fd], NULL, 0);
 		free(line);
 		return (NULL);
 	}
@@ -125,7 +125,8 @@ int	ft_clean_stash(t_list **stash, int i, int j, t_list *lc[2])
 	lc[0] = ft_lst_get_last(*stash);
 	while (lc[0]->content[i] && lc[0]->content[i] != '\n')
 		i++;
-	i += lc[0]->content && lc[0]->content[i] == '\n';
+	if (lc[0]->content && lc[0]->content[i] == '\n')
+		i++;
 	lc[1]->content = malloc(sizeof(char) * (
 				(ft_free_stash_or_len(NULL, lc[0]->content, 1) - i) + 1));
 	if (lc[1]->content == NULL)

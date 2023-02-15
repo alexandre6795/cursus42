@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 11:27:38 by aherrman          #+#    #+#             */
-/*   Updated: 2023/02/14 11:02:59 by aherrman         ###   ########.fr       */
+/*   Created: 2023/02/14 11:32:46 by aherrman          #+#    #+#             */
+/*   Updated: 2023/02/14 14:03:10 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 //*****lib*****//
 # include <unistd.h>
@@ -33,9 +33,9 @@ typedef struct s_list
 //*****proto*****//
 char	*get_next_line(int fd);
 void	ft_read_and_stash(int fd, t_list **stash);
-int	ft_add_to_stash(t_list **stash, char *buf, int size, int i);
+int		ft_add_to_stash(t_list **stash, char *buf, int size, int i);
 void	ft_extract_line(t_list *stash, char **line);
-int	ft_clean_stash(t_list **stash, int i, int j, t_list *lc[2]);
+int		ft_clean_stash(t_list **stash, int i, int j, t_list *lc[2]);
 int		ft_found_newline(t_list *stash);
 t_list	*ft_lst_get_last(t_list *stash);
 void	ft_generate_line(char **line, t_list *stash);

@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:27:28 by aherrman          #+#    #+#             */
-/*   Updated: 2023/02/14 11:02:46 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/02/15 12:15:44 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,6 @@ void	ft_extract_line(t_list *stash, char **line)
 	(*line)[j] = '\0';
 }
 
-// lc[0] = last | lc[1] = clean_node
 int	ft_clean_stash(t_list **stash, int i, int j, t_list *lc[2])
 {
 	lc[1] = malloc(sizeof(t_list));
@@ -125,7 +124,8 @@ int	ft_clean_stash(t_list **stash, int i, int j, t_list *lc[2])
 	lc[0] = ft_lst_get_last(*stash);
 	while (lc[0]->content[i] && lc[0]->content[i] != '\n')
 		i++;
-	i += lc[0]->content && lc[0]->content[i] == '\n';
+	if (lc[0]->content && lc[0]->content[i] == '\n')
+		i++;
 	lc[1]->content = malloc(sizeof(char) * (
 				(ft_free_stash_or_len(NULL, lc[0]->content, 1) - i) + 1));
 	if (lc[1]->content == NULL)

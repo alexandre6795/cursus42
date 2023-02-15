@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:28:03 by aherrman          #+#    #+#             */
-/*   Updated: 2023/02/14 11:00:29 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/02/15 12:15:32 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"get_next_line.h"
@@ -63,21 +63,19 @@ void	ft_generate_line(char **line, t_list *stash)
 	*line = malloc(sizeof(char) * (len + 1));
 }
 
-// ft_free_stash(*stash) -> ft_free_stash_or_len(stash, NULL, 0);
-// ft_strlen(s) -> ft_free_stash_or_len(NULL, s, 1);
-int ft_free_stash_or_len (t_list **stash, char *s, int select)
+int	ft_free_stash_or_len(t_list **stash, char *s, int select)
 {
-	t_list 	*temp;
-	t_list 	*next;
-	int			i;
+	t_list	*temp;
+	t_list	*next;
+	int		i;
 
 	i = 0;
-	if(select == 0)
+	if (select == 0)
 	{
 		if (stash)
 		{
 			temp = *stash;
-			while(temp)
+			while (temp)
 			{
 				free(temp->content);
 				next = temp->next;
@@ -87,7 +85,8 @@ int ft_free_stash_or_len (t_list **stash, char *s, int select)
 			*stash = NULL;
 		}
 	}
-	else if(select == 1)
-		while(s[i++]);
+	else if (select == 1)
+		while (s[i])
+			i++;
 	return (i);
 }
