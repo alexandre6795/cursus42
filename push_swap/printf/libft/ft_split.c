@@ -6,16 +6,14 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:11:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/03/07 12:32:31 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/03/10 09:44:52 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libc.h"
 
-
-static char	*ft_word(char const *s, char *c, size_t x)
+static char	*ft_word(char const *s, char *c, size_t x, size_t j)
 {
-	size_t	j;
 	size_t	i;
 	char	*word;
 	size_t	nb_word;
@@ -24,7 +22,9 @@ static char	*ft_word(char const *s, char *c, size_t x)
 	nb_word = 0;
 	while (s[i])
 	{
-		while ((s[i] == c) && (s[i]))
+		while (s[i] != c[j] && c[j])
+		j++;
+		if (s[i] == c)
 		i++;
 		j = i;
 		while ((s[i] != c) && (s[i]))
@@ -45,13 +45,17 @@ static size_t	ft_count(char const *s, char *c)
 	size_t	i;
 	size_t	j;
 	size_t	nb_word;
+	size_t	k;
 
 	i = 0;
 	j = 0;
 	nb_word = 0;
 	while (s[i])
 	{
-		while (s[i] == c)
+		k = 0;
+		while (s[i] != c[k] && c[k])
+		k++;
+		if (s[i] == c)
 			i++;
 		if (s[i])
 			nb_word++;
@@ -80,6 +84,7 @@ char	**ft_split(char const *s, char *c)
 	char	**word;
 	size_t	x;
 	size_t	nb_word;
+	size_t	j;
 
 		x = 0;
 	if (s == NULL)
@@ -90,7 +95,7 @@ char	**ft_split(char const *s, char *c)
 		return (0);
 	while (nb_word > x)
 	{
-		word[x] = ft_word(s, c, x);
+		word[x] = ft_word(s, c, x, j);
 		if (word[x] == 0)
 		{
 			ft_jump_error(word);
