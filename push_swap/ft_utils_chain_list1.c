@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:29:20 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/04 16:10:52 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:06:15 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,19 @@ void	ft_lstadd_back_int(t_stack **list, t_stack *new)
 	{
 		*list = new;
 		new->av = NULL;
+		new->next = NULL;
 		return ;
 	}
 	a = *list;
-	while (a->next != NULL)
+	while (a && a->next != NULL)
 	{
 		a = a->next;
 	}
-	new->av = a;
-	new->next = NULL;
+	if (new)
+	{
+		new->av = a;
+		new->next = NULL;
+	}
 	a->next = new;
 }
 
@@ -38,7 +42,7 @@ t_stack	*ft_new_elem(long int value)
 {
 	t_stack	*new;
 
-	new = malloc(sizeof(*new));
+	new = (t_stack*)malloc(sizeof(t_stack));
 	if (new == NULL)
 		return (NULL);
 	new->v = value;
@@ -53,7 +57,7 @@ int	ft_lst_range(t_stack *lst)
 	int	i;
 
 	i = 0;
-	while (lst->next != NULL)
+	while (lst)
 	{
 		i++;
 		lst = lst->next;
@@ -77,11 +81,11 @@ int	ft_lower_in_list(t_stack list)
 	t_stack	*temp;
 
 	temp = &list;
-	lower = temp->v;
+	lower = temp->r;
 	while (temp)
 	{
-		if (temp->v < lower)
-			lower = temp->v;
+		if (temp->r < lower)
+			lower = temp->r;
 		temp = temp->next;
 	}
 	return (lower);

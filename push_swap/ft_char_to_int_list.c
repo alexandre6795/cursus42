@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:27:35 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/02 15:42:54 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/11 14:53:16 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,12 @@ int	ft_char_to_int_list(int ac, char **av, t_all *stack)
 	}
 	if (ft_list_check_int(*stack->sa) == 1)
 	{
-	printf("nok check_int\n");
+	// printf("nok check_int\n");
 		ft_error(stack);
 	}
-	printf("ok check_int\n");
+	else if (ft_list_check_int(*stack->sa) == 2)
+	return(0);
+	// else
+	// printf("ok check_int\n");
 	return (0);
 }

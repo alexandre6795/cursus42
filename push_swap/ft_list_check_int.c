@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:58:09 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/02 15:48:32 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/11 14:53:03 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_check_twin(t_stack stack_a)
 	int		len;
 
 	tmp2 = &stack_a;
-	i = 0;
+	i = 1;
 	len = ft_lst_range(&stack_a);
 	while (tmp2)
 	{
@@ -37,6 +37,7 @@ int	ft_check_twin(t_stack stack_a)
 		if (len == i)
 			return (2);
 	}
+	// printf("len = %d i = %d \n\n\n\n\n",len,i);
 	return (0);
 }
 
@@ -58,6 +59,7 @@ int	ft_check_limit(t_stack stack_a)
 }
 
 int	ft_list_check_int(t_stack stack_a)
+
 {
 	if (ft_check_twin(stack_a) == 1 || ft_check_limit(stack_a) == 1)
 		return (1);

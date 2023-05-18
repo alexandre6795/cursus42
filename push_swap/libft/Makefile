@@ -6,7 +6,7 @@
 #    By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 15:45:26 by aherrman          #+#    #+#              #
-#    Updated: 2023/05/02 08:56:16 by aherrman         ###   ########.fr        #
+#    Updated: 2023/05/09 14:49:26 by aherrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,7 @@ RM = rm -rf
 all	:	$(NAME)
 
 $(NAME)	:	$(OBJS) $(OBJS_BONUS)
-	ar rc $(NAME) $(OBJS)
+	ar rc $(NAME) $(OBJS) $(OBJS_BONUS)
 	ranlib $(NAME)
 
 clean	:	

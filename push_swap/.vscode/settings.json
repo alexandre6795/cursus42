@@ -1,6 +1,8 @@
 {
 	"files.associations": {
 		"unistd.h": "c",
-		"*.a": "c"
+		"*.a": "c",
+		"cstdio": "c",
+		"push_swap": "c"
 	}
 }
