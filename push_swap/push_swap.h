@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:22:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/18 14:30:30 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:45:09 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,8 @@ int					ft_high_in_list(t_stack list);
 void				ft_sort_for3(t_stack *list);
 void				ft_bbot(t_all *list, int select, int len_t);
 void				ft_choixpot(t_all *list, int len_t);
-void				ft_google(t_all *list, int len_t, int len_a);
+void ft_base_sort(t_all *list,int len_t, int len_a,int range);
+int	ft_base(t_all *list, int len_t, int len_a, int r);
 //*****ft_sort_other**//
 void				ft_first_sort(t_all *list, int len_t);
 void				ft_sort_high(t_all *list, int len_t);
@@ -99,10 +100,13 @@ void				ft_sort_endp1(t_all *list, int len_t);
 void				ft_sort_endp2(t_all *list, int len_t);
 void				ft_sort_endp3(t_all *list, int len_t);
 //ft_sort_last_step
-void				ft_sort_time_is_no_sort(t_all *list, int len_t);
+void ft_sort_top(t_all *list,int len_t,int len_a,int range);
 void				ft_sort_other(t_all *list);
-//***** ft_move ******//
-void				ft_swap(t_stack *list, int select);
+int					ft_next_rank(t_stack *list, int len_t);
+void ft_second_sort(t_all *list,int len_t,int len_a,int r);
+void ft_end_sort(t_all *list,int len_t,int len_a);
+	//***** ft_move ******//
+	void ft_swap(t_stack *list, int select);
 void				ft_push(t_stack **pushin, t_stack **pushout, int select);
 void				ft_rotate(t_stack **list, int select);
 void				ft_rrotate(t_stack **list, int select);

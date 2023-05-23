@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:47:05 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/18 15:23:27 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:31:01 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,10 @@ void	ft_choixpot(t_all *list, int len_t)
 	{
 		if (list->sb->r >= len_t / 3)
 		{
-			if (list->sb->r < list->sb->next->r && list->sb->next->r > len_t
-				/ 3)
+			if (list->sb->r < list->sb->next->r && list->sb->r > len_t / 3)
 				ft_swap(list->sb, 2);
 		}
-		if (list->sb->r <= len_t / 3)
+		if (list->sb->r <= (len_t / 3) + 1)
 		{
 			if (ft_last_ranking(list->sb) < list->sb->r)
 			{
@@ -64,7 +63,8 @@ void	ft_bbot(t_all *list, int select, int len_t)
 {
 	if (select == 1)
 	{
-		ft_rrotate(&list->sa, 1);
+		if (ft_last_ranking(list->sa) != len_t)
+			ft_rrotate(&list->sa, 1);
 		ft_swap(list->sa, 1);
 		ft_rotate(&list->sa, 1);
 		if (list->sa->r != len_t)
@@ -78,29 +78,34 @@ void	ft_bbot(t_all *list, int select, int len_t)
 		ft_rotate(&list->sb, 2);
 	}
 }
-void	ft_google(t_all *list, int len_t, int len_a)
+void	ft_base_sort(t_all *list, int len_t, int len_a, int r)
 {
-	t_temp temp;
-	ft_init_temp(&temp);
-	ft_fc(&list->sa);
-	ft_fc(&list->sb);
-	while (list->sb->next && list->sb->r != len_t - len_a)
-	{
-		temp.lint.temp0++;
-		list->sb = list->sb->next;
-	}
-	while (list->sb->next)
-		list->sb = list->sb->next;
-	while (list->sb->av && (list->sb->r) != len_t - len_a)
-	{
-		temp.lint.temp1++;
-		list->sb = list->sb->av;
-	}
-	if (temp.lint.temp0  <= temp.lint.temp1)
-		while(temp.lint.temp0-- >= 0)
-		ft_rotate(&list->sb,2);
+	list->sa = *ft_fc(&list->sa);
+	list->sb = *ft_fc(&list->sb);
+	len_a = ft_next_rank(list->sa, len_t);
+	if (ft_base(list, len_t, len_a, r) == 1)
+		;
+	//else if (list->sb->r < list->sb->next->r)
+	//	ft_swap(list->sb, 2);
 	else
-	while(temp.lint.temp1-- >= 0)
-		ft_rrotate(&list->sb,2);
-	ft_push(&list->sa,&list->sb,1);
+		ft_rotate(&list->sb, 2);
+}
+int	ft_base(t_all *list, int len_t, int len_a, int r)
+{
+	 if (list->sa->next->r == len_t - len_a-1 &&list->sa->r == len_t - len_a )
+		ft_swap(list->sa, 1);
+	 if (ft_last_ranking(list->sa) == len_t - len_a)
+		ft_rrotate(&list->sa, 1);
+	else if (list->sb->r == len_t * r / 100 && (list->sb->r
+				- 1 == ft_last_ranking(list->sa)
+				|| ft_last_ranking(list->sa) == len_t))
+	{
+		ft_push(&list->sa, &list->sb, 1);
+		ft_rotate(&list->sa, 1);
+	}
+	else if (list->sb->r == len_t - len_a || list->sb->r == len_t - len_a - 1)
+		ft_push(&list->sa, &list->sb, 1);
+	else
+		return (0);
+	return (1);
 }
