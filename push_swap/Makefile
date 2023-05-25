@@ -6,7 +6,7 @@
 #    By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 10:04:23 by aherrman          #+#    #+#              #
-#    Updated: 2023/05/17 12:27:40 by aherrman         ###   ########.fr        #
+#    Updated: 2023/05/25 19:38:26 by aherrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,13 @@ SRCS =	push_swap.c\
 		ft_error.c\
 		ft_utils_chain_list1.c\
 		ft_utils_chain_list2.c\
-			ft_utils_chain_list3.c\
+		ft_utils_chain_list3.c\
 		ft_move.c\
 		ft_ranking.c\
-				ft_sort_other.c\
-		ft_tri.c \
+		ft_sort_other.c\
+		ft_tri.c\
 		ft_sort_last_step.c\
+		ft_s.c\
 
 SRCST = test/ft_print_list.c\
 

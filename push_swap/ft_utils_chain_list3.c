@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:38:48 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/18 15:06:40 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:00:18 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void	ft_split_list(t_all *list, int len)
 {
 	int	i;
 
-	i = 0;
+	i = 5;
 	if (!list)
 		return ;
-	while (i < len)
+	while (i > 0)
 	{
 		if (list->sa->r <= len / 2)
 			ft_push(&list->sb, &list->sa, 2);
 		else
 			ft_rotate(ft_fc(&list->sa), 1);
-		i++;
+		i--;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:19:51 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/17 15:04:25 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:01:15 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ void	ft_sort_decrease(t_stack *list)
 
 	if (!list)
 		return ;
-	if (ft_list_is_reverse(list, ft_lst_range(list)) != 1 )
-		ft_swap(list, 2);
+		if(list->r == 1 && list->next->r == 2)
+		ft_rrotate(&list,2);
+		else
+		return;
 	}

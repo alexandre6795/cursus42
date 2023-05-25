@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 11:02:47 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/12 16:08:52 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/25 10:36:19 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ void	ft_swap(t_stack *list, int select)
 {
 	t_temp	temp;
 
-	temp.lint.temp0 = list->v;
-	temp.lint.temp1 = list->next->v;
-	list->v = temp.lint.temp1;
-	list->next->v = temp.lint.temp0;
-	temp.lint.temp2 = list->r;
-	temp.lint.temp3 = list->next->r;
-	list->r = temp.lint.temp3;
-	list->next->r = temp.lint.temp2;
+	temp.i.t0 = list->v;
+	temp.i.t1 = list->next->v;
+	list->v = temp.i.t1;
+	list->next->v = temp.i.t0;
+	temp.i.t2 = list->r;
+	temp.i.t3 = list->next->r;
+	list->r = temp.i.t3;
+	list->next->r = temp.i.t2;
 	if (select == 1)
 		write(1, "sa", 2);
 	else

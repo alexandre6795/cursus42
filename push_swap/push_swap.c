@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 11:25:59 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/18 14:20:57 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/25 20:08:56 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@ void	ft_init(t_all *list)
 }
 void ft_init_temp(t_temp *temp)
 {
-	temp->lint.temp0=0;
-	temp->lint.temp1=0 ;
-	temp->lint.temp2=0 ;
-	temp->lint.temp3=0 ;
-	temp->string.temp0=NULL;
-	temp->string.temp1=NULL;
-	temp->string.temp2=NULL;
-	temp->string.temp3=NULL;
+	temp->i.t0=0;
+	temp->i.t1=0 ;
+	temp->i.t2=0 ;
+	temp->i.t3=0 ;
+	temp->i.t4=0 ;
+	temp->i.t5=0 ;
+	temp->s.s0=NULL;
+	temp->s.s1=NULL;
+	temp->s.s2=NULL;
+	temp->s.s3=NULL;
 }
 
 int	main(int ac, char **av)
@@ -46,6 +48,7 @@ int	main(int ac, char **av)
 	{
 		ft_error(stack);
 	}
+	ft_free(stack);
 	//ft_print_list(stack->sa);
 	return (0);
 }
