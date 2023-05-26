@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 09:10:58 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/18 12:26:39 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:13:42 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,8 @@ void	ft_sort(t_all *list)
 		ft_sort_for5(list);
 	else if (len == 3)
 		ft_sort_for3(list->sa);
-	else
+	else if (len < 300)
 		ft_sort_other(list);
+		else
+		ft_sort_more_and_more(list);
 }

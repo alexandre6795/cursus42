@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:36:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/25 19:39:43 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:37:21 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,29 +35,28 @@ void	ft_sort_high(t_all *list, int len_t)
 	}
 	ft_sort_for3(*ft_fc(&list->sa));
 }
-void	ft_first_sort(t_all *list, int len_t)
+void	ft_first_sort(t_all *lt, int len_t)
 {
 	int	len;
 
 	len = len_t;
 	while (len > 0)
 	{
-		if (list->sa->r >= len_t * 66 / 100)
-			ft_rotate(&list->sa, 1);
+		if (lt->sa->r >= len_t * 66 / 100)
+			ft_rotate(&lt->sa, 1);
 		else
 		{
-			ft_push(&list->sb, &list->sa, 2);
-			if ((list->sb->next) != NULL)
+			ft_push(&lt->sb, &lt->sa, 2);
+			if ((lt->sb->next) != NULL)
 			{
-				if (list->sb->r >= len_t / 3)
+				if (lt->sb->r >= len_t / 3)
 				{
-					if (list->sb->r < list->sb->next->r && list->sb->r > len_t
-						/ 3)
-						ft_swap(list->sb, 2);
+					if (lt->sb->r < lt->sb->next->r && lt->sb->r > len_t/ 3)
+						ft_swap(lt->sb, 2);
 				}
-				if (list->sb->r <= (len_t / 3) + 1)
+				if (lt->sb->r <= (len_t / 3) + 1)
 				{
-					ft_rotate(&list->sb, 2);
+					ft_rotate(&lt->sb, 2);
 				}
 			}
 		}
@@ -113,14 +112,6 @@ void	ft_sort_endp3(t_all *list, int len_t)
 {
 	int len_a;
 	len_a = ft_lst_range(list->sa);
-	int i;
-	i = ft_count_nb(list, len_t, 1);
-
-	while (list->sb)
-	{
-		ft_base_sort(list, len_t, len_a, 1);
-		i--;
-	}
 	while (list->sb)
 	{
 		len_a = ft_lst_range(list->sa);

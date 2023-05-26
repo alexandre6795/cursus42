@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:47:05 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/25 19:17:07 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/26 13:58:39 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_base_sort(t_all *list, int len_t, int len_a, int r)
 	list->sa = *ft_fc(&list->sa);
 	list->sb = *ft_fc(&list->sb);
 	len_a = ft_next_rank(list->sa, len_t);
-	if (list->sa->next->r == len_t - len_a - 1 && list->sa->r == len_t - len_a)
+	 if (list->sa->next->r == len_t - len_a - 1 && list->sa->r == len_t - len_a)
 		ft_swap(list->sa, 1);
 	else if (ft_last_ranking(list->sa) == len_t - len_a)
 		ft_rrotate(&list->sa, 1);
@@ -69,7 +69,7 @@ void	ft_base_sort(t_all *list, int len_t, int len_a, int r)
 		ft_push(&list->sa, &list->sb, 1);
 		ft_rotate(&list->sa, 1);
 	}
-	else if (list->sb->r == len_t - len_a || list->sb->r == len_t - len_a - 1)
+	else if (list->sb->r == len_t - len_a)
 		ft_push(&list->sa, &list->sb, 1);
 	else
 		ft_rotate(&list->sb, 2);

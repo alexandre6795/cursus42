@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:58:09 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/11 14:53:03 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:06:46 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	ft_check_twin(t_stack stack_a)
 		if (len == i)
 			return (2);
 	}
-	// printf("len = %d i = %d \n\n\n\n\n",len,i);
 	return (0);
 }
 

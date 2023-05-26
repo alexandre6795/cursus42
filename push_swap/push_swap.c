@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 11:25:59 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/25 20:08:56 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/26 16:32:12 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,8 @@ int	main(int ac, char **av)
 		ft_sort(stack);
 	}
 	else
-	{
 		ft_error(stack);
-	}
+ft_print_list(stack->sa);
 	ft_free(stack);
-	//ft_print_list(stack->sa);
 	return (0);
 }
