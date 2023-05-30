@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:36:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/26 14:37:21 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/30 08:24:24 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	ft_sort_high(t_all *list, int len_t)
 	}
 	ft_sort_for3(*ft_fc(&list->sa));
 }
+
 void	ft_first_sort(t_all *lt, int len_t)
 {
 	int	len;
@@ -51,7 +52,7 @@ void	ft_first_sort(t_all *lt, int len_t)
 			{
 				if (lt->sb->r >= len_t / 3)
 				{
-					if (lt->sb->r < lt->sb->next->r && lt->sb->r > len_t/ 3)
+					if (lt->sb->r < lt->sb->next->r && lt->sb->r > len_t / 3)
 						ft_swap(lt->sb, 2);
 				}
 				if (lt->sb->r <= (len_t / 3) + 1)
@@ -63,6 +64,7 @@ void	ft_first_sort(t_all *lt, int len_t)
 		len--;
 	}
 }
+
 void	ft_sort_endp1(t_all *list, int len_t)
 {
 	int	len_a;
@@ -84,6 +86,7 @@ void	ft_sort_endp1(t_all *list, int len_t)
 	while (ft_last_ranking(list->sa) != len_t)
 		ft_rrotate(&list->sa, 1);
 }
+
 void	ft_sort_endp2(t_all *list, int len_t)
 {
 	int	len_a;
@@ -108,9 +111,11 @@ void	ft_sort_endp2(t_all *list, int len_t)
 	while (ft_last_ranking(list->sa) != len_t)
 		ft_rrotate(&list->sa, 1);
 }
+
 void	ft_sort_endp3(t_all *list, int len_t)
 {
-	int len_a;
+	int	len_a;
+
 	len_a = ft_lst_range(list->sa);
 	while (list->sb)
 	{

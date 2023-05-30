@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 14:09:53 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/25 16:48:30 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/30 08:20:07 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	ft_rx(t_all *list, int target)
 	if (list->sa->r == ft_last_ranking(list->sa) + 1)
 		ft_rotate(&list->sa, 1);
 }
+
 void	ft_rrx(t_all *list, int target)
 {
 	while (list->sb && list->sb->r != target)
@@ -56,11 +57,12 @@ void	ft_rrx(t_all *list, int target)
 	if (list->sa->r == ft_last_ranking(list->sa) + 1)
 		ft_rotate(&list->sa, 1);
 }
+
 void	ft_a(t_all *list, t_temp temp)
 {
 	ft_fc(&list->sa);
 	ft_fc(&list->sb);
-	if (temp.i.t0 + 3  < temp.i.t1)
+	if (temp.i.t0 + 3 < temp.i.t1)
 	{
 		if (temp.i.t4 == 1)
 			ft_rrx(list, temp.i.t3);

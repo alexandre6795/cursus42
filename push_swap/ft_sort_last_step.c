@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_last_step.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/30 08:21:14 by aherrman          #+#    #+#             */
+/*   Updated: 2023/05/30 08:22:28 by aherrman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap.h"
 
 void	do_the_while_of_sort(t_all *list, int i, int j, int len)
@@ -11,6 +22,7 @@ void	do_the_while_of_sort(t_all *list, int i, int j, int len)
 		j++;
 	}
 }
+
 void	do_the_while_of_sort2(t_all *list, int i, int j, int len)
 {
 	while (j < len)
@@ -22,6 +34,7 @@ void	do_the_while_of_sort2(t_all *list, int i, int j, int len)
 		j++;
 	}
 }
+
 void	ft_sort_other(t_all *list)
 {
 	int	len_t;
@@ -59,13 +72,14 @@ int	ft_next_rank(t_stack *list, int len_t)
 		list = list->av;
 	return (len_t - list->r + 1);
 }
+
 void	ft_sort_more_and_more(t_all *list)
 {
-	int i;
-	int j;
-	int max_num;
-	int max_bits;
-	int len;
+	int	i;
+	int	j;
+	int	max_num;
+	int	max_bits;
+	int	len;
 
 	i = 0;
 	j = 0;
