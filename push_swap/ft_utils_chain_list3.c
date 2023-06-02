@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:38:48 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/25 11:00:18 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/30 08:59:42 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,14 @@ t_stack	**ft_fc(t_stack **list)
 		(*list) = (*list)->av;
 	return (list);
 }
+
 int	ft_last_ranking(t_stack *list)
 {
 	while (list->next != NULL)
-		list =list->next;
+		list = list->next;
 	return (list->r);
 }
+
 int	ft_high_in_list(t_stack list)
 {
 	int		high;

@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:29:20 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/16 15:06:15 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/30 09:31:06 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_stack	*ft_new_elem(long int value)
 {
 	t_stack	*new;
 
-	new = (t_stack*)malloc(sizeof(t_stack));
+	new = (t_stack *)malloc(sizeof(t_stack));
 	if (new == NULL)
 		return (NULL);
 	new->v = value;

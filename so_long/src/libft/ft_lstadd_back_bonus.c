@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_list.c                                    :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 12:41:04 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/30 09:20:38 by aherrman         ###   ########.fr       */
+/*   Created: 2022/11/18 11:50:48 by aherrman          #+#    #+#             */
+/*   Updated: 2023/04/26 15:20:39 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include"libft.h"
 
-void	ft_print_list(t_stack *list)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
+	t_list	*a;
 
-	i = ft_lst_range(list);
-	printf("range = %d\n", i);
-	while (list && i > 0)
+	if (!(*lst))
 	{
-		printf("value in chain = %ld ranking = %d\n", list->v, list->r);
-		i--;
-		list = list->next;
+		*lst = new;
+		return ;
 	}
+	a = *lst;
+	while (a->next != NULL)
+		a = a->next;
+	a->next = new;
 }

@@ -3,36 +3,24 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+         #
+#    By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 10:04:23 by aherrman          #+#    #+#              #
-#    Updated: 2023/05/30 14:10:20 by aherrman         ###   ########.fr        #
+#    Updated: 2023/06/02 14:37:50 by aherrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME = so_long
 
-SRCS =	push_swap.c\
-		ft_list_check_int.c\
-		ft_verif_av.c\
-		ft_char_to_int_list.c\
+SRCS =	so_long.c\
 		ft_error.c\
-		ft_utils_chain_list1.c\
-		ft_utils_chain_list2.c\
-		ft_utils_chain_list3.c\
-		ft_move.c\
-		ft_ranking.c\
-		ft_sort_other.c\
-		ft_tri.c\
-		ft_sort_last_step.c\
-		ft_s.c\
-
-SRCST = test/ft_print_list.c\
+		
+SRCST = src/test/
 
 OBJST = $(SRCST:.c=.o)
-	  
 
-OBJS = $(SRCS:.c=.o)
+
+OBJS = $(addprefix src/,$(SRCS:.c=.o))
 
 CC = gcc
 
@@ -41,7 +29,6 @@ CFLAGS = -g3 -Wall -Werror -Wextra
 RM = rm -rf
 
 INC = libft/libft.a\
-
 
 
 .c.o:

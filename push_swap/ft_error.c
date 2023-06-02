@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 08:46:43 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/25 20:07:36 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/30 13:48:45 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,13 @@ void	ft_error(t_all *stack)
 		}
 		free(stack);
 	}
-	ft_printf("ERROR");
+	ft_printf("Error\n");
 	exit(-1);
 }
-void ft_free(t_all *stack)
+
+void	ft_free(t_all *stack)
 {
-t_stack	*temp1;
+	t_stack	*temp1;
 	t_stack	*temp2;
 	t_stack	*next;
 

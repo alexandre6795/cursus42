@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 09:10:58 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/26 15:13:42 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/30 09:05:18 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,30 +23,30 @@ void	ft_sort_for2(t_stack *list)
 
 void	ft_sort_for3(t_stack *list)
 {
-	if (ft_valid_sort(list,ft_lst_range(list))!=1)
+	if (ft_valid_sort(list, ft_lst_range(list)) != 1)
 	{
-	if (list->r == ft_lower_in_list(*list))
-	{
-		ft_rrotate(&list, 1);
-		ft_swap(list, 1);
-	}
-	else if (list->r == ft_high_in_list(*list))
-	{
-		if (list->next->r == ft_lower_in_list(*list))
-			ft_rotate(&list, 1);
+		if (list->r == ft_lower_in_list(*list))
+		{
+			ft_rrotate(&list, 1);
+			ft_swap(list, 1);
+		}
+		else if (list->r == ft_high_in_list(*list))
+		{
+			if (list->next->r == ft_lower_in_list(*list))
+				ft_rotate(&list, 1);
+			else
+			{
+				ft_swap(list, 1);
+				ft_rrotate(&list, 1);
+			}
+		}
 		else
 		{
-			ft_swap(list, 1);
-			ft_rrotate(&list, 1);
+			if (list->next->r == ft_high_in_list(*list))
+				ft_rrotate(&list, 1);
+			else
+				ft_swap(list, 1);
 		}
-	}
-	else
-	{
-		if (list->next->r == ft_high_in_list(*list))
-			ft_rrotate(&list, 1);
-		else
-			ft_swap(list, 1);
-	}
 	}
 }
 
@@ -76,6 +76,7 @@ void	ft_sort_forfor(t_all *list)
 		}
 	}
 }
+
 void	ft_sort_for5(t_all *list)
 {
 	int	len;
@@ -95,10 +96,9 @@ void	ft_sort_for5(t_all *list)
 
 void	ft_sort(t_all *list)
 {
-	int len;
-	len = ft_lst_range(list->sa);
-	
+	int	len;
 
+	len = ft_lst_range(list->sa);
 	if (len == 2)
 		ft_sort_for2(list->sa);
 	else if (len == 4)
@@ -109,6 +109,6 @@ void	ft_sort(t_all *list)
 		ft_sort_for3(list->sa);
 	else if (len < 300)
 		ft_sort_other(list);
-		else
+	else
 		ft_sort_more_and_more(list);
 }
