@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 09:57:59 by aherrman          #+#    #+#             */
-/*   Updated: 2022/11/13 13:16:23 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:47:59 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strrchr(const char *s, int c)
 	{
 		if (s[y] == (char)c)
 			return ((char *)(s + y));
-			y --;
+		y --;
 	}
 	if (s[y] == (char)c)
 		return ((char *)(s + y));

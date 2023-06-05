@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 10:09:45 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/05 18:23:41 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:13:46 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void ft_v(t_game *game)
 void ft_valid_fl(t_game *game,int len)
 {
 	int i;
-	int j;
 
 	i = 0;
 	while(game->map[0][i] != '\n' ) 
@@ -38,16 +37,14 @@ void ft_valid_fl(t_game *game,int len)
 	while(game->map[len][i]!= '\n')
 	{
 		if(game->map[len][i]!='1')
-		ft_error("not only wall around map",game);
+			ft_error("not only wall around map",game);
 		i++;
 	}
-	
-	j = 0;
-	while(j > len && ft_strlen(game->map[i]) == ft_strlen(game->map[0]))	
-	j++;
-	if( j != i)
-	ft_error("map line don t have same size",game);
-	else
+	i = 0;
+	while (i < game->msize->x && ft_strlen(game->map[i]) == ft_strlen(game->map[0]))
+		i++;
+	if (i != game->msize->x)
+		ft_error("map line don t have same size",game);
 	game->msize->y = ft_strlen(game->map[0]);
 }
 void ft_valid_other(t_game *game,int len)

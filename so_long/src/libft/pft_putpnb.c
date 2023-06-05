@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pft_putpnb.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:27:55 by aherrman          #+#    #+#             */
-/*   Updated: 2023/01/03 16:52:59 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:51:13 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+
+#include"libft.h"
 
 static void	ft_recur(unsigned long long int n, unsigned int nb_chiffre, int x)
 {
@@ -36,7 +37,7 @@ int	pft_putpnb(unsigned long long int n, int x)
 		return (-1);
 	if (n == 0)
 	nb_chiffre = pft_putc('0');
-	else if (n < 0)
+	else if (n <= 0)
 	{
 		nb_chiffre = pft_putc('-');
 		temp = -n;

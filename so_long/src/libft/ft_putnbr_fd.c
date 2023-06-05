@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 14:10:01 by aherrman          #+#    #+#             */
-/*   Updated: 2022/12/16 11:49:28 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:50:01 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include"libft.h"
 
 static void	ft_recur(unsigned int n, int nb_chiffre, int fd)
@@ -36,7 +37,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	else
 		temp = n;
-		nb = temp;
+	nb = temp;
 	while (temp != 0)
 	{
 		temp = temp / 10;

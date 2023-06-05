@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tri.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 09:10:58 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/30 16:17:20 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:52:23 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

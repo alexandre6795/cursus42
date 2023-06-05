@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 17:04:45 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/05 10:31:10 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:49:00 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <string.h>
 # include <unistd.h>
 #include "get_next_line.h"
+#include "get_next_line.h"
+#include <stdint.h>
+
 
 //*****STRUCT*****//
 

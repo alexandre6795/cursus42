@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 09:48:41 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/05 18:22:02 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:16:12 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,10 @@
  void 	ft_print_map(t_game *game)
 {
 	int i = 0;
-	int j = 0;
 	
 	while(game->msize->x > i)
 	{
-		while(game->msize->y > j)
-		{
-		printf("%c",game->map[i][j]);
-		j++;
-		}
+		printf("%s\n",game->map[i]);
 		i++;
 	}
 		printf("C = %d\n",game->C);
@@ -90,6 +85,7 @@ void	ft_valid_game(char *av,t_game *game)
 	ft_valid_fl(game,len-1);
 	ft_print_map(game);
 	//ft_valid_other(game, len-1);
+	system("leaks so_long");
 }
 
 int	ft_valid_ag(char *av)

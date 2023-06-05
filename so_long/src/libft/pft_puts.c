@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   pft_puts.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 11:22:12 by aherrman          #+#    #+#             */
-/*   Updated: 2023/01/06 11:19:19 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:50:22 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include"ft_printf.h"
 
 int	pft_puts(char *c)
@@ -25,8 +26,8 @@ int	pft_puts(char *c)
 	{
 		if (write(1, c, 1) == -1)
 			return (-1);
-			i++;
-			c++;
+		i++;
+		c++;
 	}
 	return (i);
 }
