@@ -6,7 +6,7 @@
 #    By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 10:04:23 by aherrman          #+#    #+#              #
-#    Updated: 2023/06/05 10:21:11 by aherrman         ###   ########.fr        #
+#    Updated: 2023/06/05 11:55:08 by aherrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = so_long
 SRCS =	so_long.c\
 		ft_error.c\
 		ft_valid_av.c\
+		ft_valid_map.c\
 		
 SRCST =
 

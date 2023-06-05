@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 09:48:41 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/05 11:32:45 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/05 15:16:18 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,34 +32,34 @@ void	ft_ini_game(t_game *game)
 	game->P = 0;
 	game->Q = 0;
 	game->E = 0;
-	game->pos=NULL;
+	game->msize = NULL;
+	game->pos = NULL;
 	game->map = NULL;
 }
-void ft_valid_game(int fd)
+void	ft_valid_game(char *av,t_game *game)
 {
 	t_temp	temp;
-	char * map;
-	
+	int		fd;
+	int		len;
+
+	fd = open(av, O_RDONLY);
+	len = ft_size(fd);
+	game->msize->x = len;
 	temp.i.t0 = 0;
+	game->map = malloc(sizeof(char *) * (len + 1));
+	fd = open(av, O_RDONLY);
 	while (1)
 	{
 		temp.s.s0 = get_next_line(fd);
-		printf("%s",temp.s.s0);
+		printf("%s", temp.s.s0);
 		if (temp.s.s0 == NULL)
-		{
-			ft_valid_fl(map);
 			break ;
-		}
 		else
-		{
-			map = temp.s.s0;
-			if (temp.i.t0 == 0)
-			ft_valid_fl(map);
-			else
-			ft_valid_other(map)
-			temp.i.t0++;
-		}
+			game->map[temp.i.t0] = temp.s.s0;
+		temp.i.t0++;
 	}
+	ft_valid_fl(game,len-1);
+	ft_valid_other(game, len-1);
 }
 
 int	ft_valid_ag(char *av)
@@ -77,13 +77,11 @@ int	ft_valid_ag(char *av)
 }
 int	main(int ac, char **av)
 {
-	int fd;
 	t_game *game;
 
 	ft_valid_av(ac, av);
 	game = malloc(sizeof(t_game));
 	ft_ini_game(game);
-	fd = open(av[1], O_RDONLY);
-	ft_valid_game(fd);
+	ft_valid_game(av[1],game);
 	return (0);
 }

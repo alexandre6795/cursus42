@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:22:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/05 10:35:13 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/05 15:11:47 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,16 @@ typedef struct s_game
 	int E;
 	int Q;
 	t_pos *pos;
+	t_pos *msize;
 }					t_game;
-//ft_valid_map.c//
+//ft_valid_av.c//
 void	ft_valid_av(int ac, char **av);
 //ft_error.c//
 void ft_error(char *err,t_game *game);
 void ft_free(t_game *game);
+//ft_valid_map.c//
+void ft_valid_fl(t_game *game,int len);
+void ft_valid_other(t_game *game,int fd);
+int ft_size(int fd);
 
 #endif
