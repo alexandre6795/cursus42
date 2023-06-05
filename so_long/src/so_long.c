@@ -6,11 +6,35 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 09:48:41 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/05 15:16:18 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:22:02 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long.h"	
+
+ void 	ft_print_map(t_game *game)
+{
+	int i = 0;
+	int j = 0;
+	
+	while(game->msize->x > i)
+	{
+		while(game->msize->y > j)
+		{
+		printf("%c",game->map[i][j]);
+		j++;
+		}
+		i++;
+	}
+		printf("C = %d\n",game->C);
+	printf("P = %d\n",game->P);
+	printf("Q = %d\n",game->Q);
+	printf("E = %d\n",game->E);
+	printf("msize->x = %d\n",game->msize->x);
+	printf("msize->y = %d\n",game->msize->y);
+	printf("pos->x = %d\n",game->pos->x);
+	printf("pos->y = %d\n",game->pos->y);
+}
 
 void	ft_init_temp(t_temp *temp)
 {
@@ -28,12 +52,16 @@ void	ft_init_temp(t_temp *temp)
 
 void	ft_ini_game(t_game *game)
 {
+	game->pos = malloc(sizeof(t_pos));
+	game->msize = malloc(sizeof(t_pos));
 	game->C = 0;
 	game->P = 0;
 	game->Q = 0;
 	game->E = 0;
-	game->msize = NULL;
-	game->pos = NULL;
+	game->msize->x = 0;
+	game->pos->x = 0;
+	game->msize->y = 0;
+	game->pos->y = 0;
 	game->map = NULL;
 }
 void	ft_valid_game(char *av,t_game *game)
@@ -58,8 +86,10 @@ void	ft_valid_game(char *av,t_game *game)
 			game->map[temp.i.t0] = temp.s.s0;
 		temp.i.t0++;
 	}
+	ft_print_map(game);
 	ft_valid_fl(game,len-1);
-	ft_valid_other(game, len-1);
+	ft_print_map(game);
+	//ft_valid_other(game, len-1);
 }
 
 int	ft_valid_ag(char *av)
