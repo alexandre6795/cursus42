@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:22:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/02 14:43:04 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/05 10:35:13 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <fcntl.h>
 
 //*****STRUCT*****//
 typedef struct s_lint
@@ -58,7 +59,12 @@ typedef struct s_game
 	int P;
 	int E;
 	int Q;
-	t_pos pos;
+	t_pos *pos;
 }					t_game;
+//ft_valid_map.c//
+void	ft_valid_av(int ac, char **av);
+//ft_error.c//
+void ft_error(char *err,t_game *game);
+void ft_free(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 10:04:23 by aherrman          #+#    #+#              #
-#    Updated: 2023/06/02 14:37:50 by aherrman         ###   ########.fr        #
+#    Updated: 2023/06/05 10:21:11 by aherrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,9 @@ NAME = so_long
 
 SRCS =	so_long.c\
 		ft_error.c\
+		ft_valid_av.c\
 		
-SRCST = src/test/
+SRCST =
 
 OBJST = $(SRCST:.c=.o)
 
@@ -28,7 +29,7 @@ CFLAGS = -g3 -Wall -Werror -Wextra
 
 RM = rm -rf
 
-INC = libft/libft.a\
+INC = ./src/libft/libft.a\
 
 
 .c.o:
@@ -37,28 +38,28 @@ INC = libft/libft.a\
 all:	$(NAME)
 
 $(NAME):	$(OBJS) 
-	make all -C ./libft
+	make all -C ./src/libft
 	gcc $(FLAG) $(OBJS) $(INC) -o $(NAME)
 
 debug:	$(OBJS)
-	make all -C ./libft
+	make all -C ./src/libft
 	gcc $(FLAG) -fsanitize=address $(OBJS) $(INC) -o $(NAME)
 
 test: $(OBJS) $(OBJST)
-	make all -C ./libft
+	make all -C .src//libft
 	gcc $(FLAG) $(OBJS) $(OBJST) $(INC) -o $(NAME)
 	
 testd: $(OBJS) $(OBJST)
-	make all -C ./libft
+	make all -C ./src/libft
 	gcc $(FLAG) -fsanitize=address $(OBJS) $(OBJST) $(INC) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)
 	$(RM) $(OBJST)
-	make clean -C ./libft
+	make clean -C ./src/libft
 
 
 fclean:	clean
 	$(RM) $(NAME)
-	make fclean -C ./libft
+	make fclean -C ./src/libft
 re:	fclean all
