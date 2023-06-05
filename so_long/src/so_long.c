@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 09:48:41 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/05 19:16:12 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/05 20:15:49 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	ft_valid_game(char *av,t_game *game)
 	ft_print_map(game);
 	ft_valid_fl(game,len-1);
 	ft_print_map(game);
-	//ft_valid_other(game, len-1);
+	ft_valid_other(game, len-1);
 	system("leaks so_long");
 }
 
