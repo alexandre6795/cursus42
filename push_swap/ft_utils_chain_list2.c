@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:19:51 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/30 08:40:15 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/31 08:44:28 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_valid_sort(t_stack *list, int len)
 
 	i = 1;
 	len_act = ft_lst_range(list);
-	while (list->next)
+	while (list && list->next)
 	{
 		if ((list->r + 1 == list->next->r) || (len_act == len && list->r == i))
 			i++;

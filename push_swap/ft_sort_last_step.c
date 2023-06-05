@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_last_step.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 08:21:14 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/30 08:22:28 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:46:57 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	do_the_while_of_sort(t_all *list, int i, int j, int len)
@@ -45,20 +46,20 @@ void	ft_sort_other(t_all *list)
 	if (ft_list_is_reverse(list->sb, ft_lst_range(list->sb)) == 1)
 	{
 		while (list->sb)
-			ft_push(&list->sa, &list->sb, 1);
+			ft_push(ft_fc(&list->sa), &list->sb, 1);
 	}
 	else
 		ft_sort_endp1(list, len_t);
 	if (ft_list_is_reverse(list->sb, ft_lst_range(list->sb)) == 1)
 	{
 		while (list->sb)
-			ft_push(&list->sa, &list->sb, 1);
+			ft_push(ft_fc(&list->sa), &list->sb, 1);
 	}
 	else
 		ft_sort_endp2(list, len_t);
 	if (ft_list_is_reverse(list->sb, ft_lst_range(list->sb)) == 1)
 		while (list->sb)
-			ft_push(&list->sa, &list->sb, 1);
+			ft_push(ft_fc(&list->sa), &list->sb, 1);
 	else
 		ft_sort_endp3(list, len_t);
 }

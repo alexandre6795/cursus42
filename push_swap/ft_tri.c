@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 09:10:58 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/30 09:05:18 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:17:20 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ void	ft_sort_for3(t_stack *list)
 {
 	if (ft_valid_sort(list, ft_lst_range(list)) != 1)
 	{
-		if (list->r == ft_lower_in_list(*list))
+		if (list && list->r == ft_lower_in_list(*list))
 		{
 			ft_rrotate(&list, 1);
 			ft_swap(list, 1);
 		}
-		else if (list->r == ft_high_in_list(*list))
+		else if (list && list->r == ft_high_in_list(*list))
 		{
-			if (list->next->r == ft_lower_in_list(*list))
+			if (list && list->next->r == ft_lower_in_list(*list))
 				ft_rotate(&list, 1);
 			else
 			{
@@ -42,7 +42,7 @@ void	ft_sort_for3(t_stack *list)
 		}
 		else
 		{
-			if (list->next->r == ft_high_in_list(*list))
+			if (list && list->next->r == ft_high_in_list(*list))
 				ft_rrotate(&list, 1);
 			else
 				ft_swap(list, 1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_other.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:36:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/30 08:27:42 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:29:59 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_first_sort(t_all *lt, int len_t)
 					if (lt->sb->r < lt->sb->next->r && lt->sb->r > len_t / 3)
 						ft_swap(lt->sb, 2);
 				}
-				if (lt->sb->r <= (len_t / 3) + 1)
+				if (lt->sb->r < (len_t / 3) + 1)
 				{
 					ft_rotate(&lt->sb, 2);
 				}
