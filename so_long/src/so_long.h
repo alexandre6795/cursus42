@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:22:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/05 16:45:24 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/06 10:51:21 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,7 @@ void ft_free(t_game *game);
 void ft_valid_fl(t_game *game,int len);
 void ft_valid_other(t_game *game,int fd);
 int ft_size(int fd);
+//ft_so_long_utils.c//
+void ft_add_heros_pos(t_game *game,int x, int y);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 09:48:41 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/05 20:15:49 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/06 15:45:28 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 	
 	while(game->msize->x > i)
 	{
-		printf("%s\n",game->map[i]);
+		printf("%s",game->map[i]);
 		i++;
 	}
+		printf("\n");
 		printf("C = %d\n",game->C);
 	printf("P = %d\n",game->P);
 	printf("Q = %d\n",game->Q);
@@ -66,7 +67,9 @@ void	ft_valid_game(char *av,t_game *game)
 	int		len;
 
 	fd = open(av, O_RDONLY);
-	len = ft_size(fd);
+	if (fd < 0)
+	ft_error("file not found", game);
+	len = ft_size(fd); 
 	game->msize->x = len;
 	temp.i.t0 = 0;
 	game->map = malloc(sizeof(char *) * (len + 1));
@@ -74,18 +77,16 @@ void	ft_valid_game(char *av,t_game *game)
 	while (1)
 	{
 		temp.s.s0 = get_next_line(fd);
-		printf("%s", temp.s.s0);
 		if (temp.s.s0 == NULL)
 			break ;
 		else
 			game->map[temp.i.t0] = temp.s.s0;
 		temp.i.t0++;
 	}
+	close(fd);
 	ft_print_map(game);
 	ft_valid_fl(game,len-1);
-	ft_print_map(game);
 	ft_valid_other(game, len-1);
-	system("leaks so_long");
 }
 
 int	ft_valid_ag(char *av)
@@ -109,5 +110,8 @@ int	main(int ac, char **av)
 	game = malloc(sizeof(t_game));
 	ft_ini_game(game);
 	ft_valid_game(av[1],game);
+	ft_print_map(game);
+	ft_free(game);
+	system("leaks so_long");
 	return (0);
 }
