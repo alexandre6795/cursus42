@@ -6,7 +6,7 @@
 #    By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 10:04:23 by aherrman          #+#    #+#              #
-#    Updated: 2023/06/06 10:51:32 by aherrman         ###   ########.fr        #
+#    Updated: 2023/06/07 11:07:55 by aherrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,12 @@ SRCS =	so_long.c\
 		ft_valid_av.c\
 		ft_valid_map.c\
 		ft_so_long_utils.c\
+		ft_flood_fill.c\
 		
-SRCST =
+SRCST = ft_print_char_tab.c\
+		ft_print_map.c\
 
-OBJST = $(SRCST:.c=.o)
+OBJST = $(addprefix src/test/,$(SRCST:.c=.o))
 
 
 OBJS = $(addprefix src/,$(SRCS:.c=.o))
@@ -48,7 +50,7 @@ debug:	$(OBJS)
 	gcc $(FLAG) -fsanitize=address $(OBJS) $(INC) -o $(NAME)
 
 test: $(OBJS) $(OBJST)
-	make all -C .src//libft
+	make all -C ./src/libft
 	gcc $(FLAG) $(OBJS) $(OBJST) $(INC) -o $(NAME)
 	
 testd: $(OBJS) $(OBJST)

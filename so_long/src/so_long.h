@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:22:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/06 10:51:21 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/07 10:58:55 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct s_game
 }					t_game;
 //ft_valid_av.c//
 void	ft_valid_av(int ac, char **av);
+void ft_n1l(int i, t_game *game);
 //ft_error.c//
 void ft_error(char *err,t_game *game);
 void ft_free(t_game *game);
@@ -73,5 +74,14 @@ void ft_valid_other(t_game *game,int fd);
 int ft_size(int fd);
 //ft_so_long_utils.c//
 void ft_add_heros_pos(t_game *game,int x, int y);
+//ft_flood_fill//
+void	ft_flood_fill(t_game *game);
+
+
+// /!\ file for make test /!\ ///
+//ft_print_map.c//
+ void 	ft_print_map(t_game *game);
+ //ft_print_char_tab.c//
+ void ft_print_char_tab(char **tab);
 
 #endif

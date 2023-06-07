@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 09:50:31 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/05 10:37:41 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/07 09:36:52 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,10 @@ void	ft_valid_av(int ac, char **av)
 	}
 	else
 	ft_error("fichier vide ou plusieurs arguments",NULL);
+}
+
+void ft_n1l(int i, t_game *game)
+{
+	if (i== game->msize->y -2)
+	ft_error("one line have only ennemi no way i go",game);
 }

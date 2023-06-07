@@ -1,46 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_print_char_tab.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/02 14:44:03 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/07 11:34:09 by aherrman         ###   ########.fr       */
+/*   Created: 2023/06/07 10:47:01 by aherrman          #+#    #+#             */
+/*   Updated: 2023/06/07 11:09:51 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-void	ft_free(t_game *game)
+void ft_print_char_tab(char **tab)
 {
-		int i;
-		
-		i = 0;
+	int i;
+	int j;
 
-	if (game!= NULL)
+	j = 0;
+	i = 0;
+	printf("ci dessous le tableau de char \n");
+	while (tab[i])
 	{
-		if (game->map != NULL)
-		while (i < game->msize->x)
+		j = 0;
+		while (tab[i][j])
 		{
-			free(game->map[i]);
-			i++;
+			j++;
 		}
-		free(game->map);
-		free(game->pos);
-		free(game->msize);
-		free(game);
+		printf("ligne[%d]have[%d]cara\n ligne = %s\n", i, j, tab[i]);
+		i++;
 	}
-}
-
-void	ft_error(char *err, t_game *game)
-{
-	if (err != NULL)
-		ft_printf("%s\n", err);
-	else
-		ft_printf("erreur inconnu\n");
-
-	if (game != NULL)
-		ft_free(game);
-		exit(0);
+	printf("total line[%d]\n", i);
 }

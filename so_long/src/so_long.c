@@ -6,31 +6,11 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 09:48:41 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/06 15:45:28 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:40:03 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"	
-
- void 	ft_print_map(t_game *game)
-{
-	int i = 0;
-	
-	while(game->msize->x > i)
-	{
-		printf("%s",game->map[i]);
-		i++;
-	}
-		printf("\n");
-		printf("C = %d\n",game->C);
-	printf("P = %d\n",game->P);
-	printf("Q = %d\n",game->Q);
-	printf("E = %d\n",game->E);
-	printf("msize->x = %d\n",game->msize->x);
-	printf("msize->y = %d\n",game->msize->y);
-	printf("pos->x = %d\n",game->pos->x);
-	printf("pos->y = %d\n",game->pos->y);
-}
 
 void	ft_init_temp(t_temp *temp)
 {
@@ -83,8 +63,8 @@ void	ft_valid_game(char *av,t_game *game)
 			game->map[temp.i.t0] = temp.s.s0;
 		temp.i.t0++;
 	}
+	free(temp.s.s0);
 	close(fd);
-	ft_print_map(game);
 	ft_valid_fl(game,len-1);
 	ft_valid_other(game, len-1);
 }
@@ -110,7 +90,6 @@ int	main(int ac, char **av)
 	game = malloc(sizeof(t_game));
 	ft_ini_game(game);
 	ft_valid_game(av[1],game);
-	ft_print_map(game);
 	ft_free(game);
 	system("leaks so_long");
 	return (0);
