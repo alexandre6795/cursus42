@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:22:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/07 10:58:55 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/07 16:43:04 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include "../.mlx42/include/MLX42/MLX42.h"
 
 //*****STRUCT*****//
 typedef struct s_lint
@@ -59,11 +60,12 @@ typedef struct s_game
 	int P;
 	int E;
 	int Q;
+	int GC;
 	t_pos *pos;
 	t_pos *msize;
 }					t_game;
 //ft_valid_av.c//
-void	ft_valid_av(int ac, char **av);
+void ft_valid_av(int ac, char **av);
 void ft_n1l(int i, t_game *game);
 //ft_error.c//
 void ft_error(char *err,t_game *game);

@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 14:44:03 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/07 11:34:09 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/07 12:05:51 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	ft_free(t_game *game)
 void	ft_error(char *err, t_game *game)
 {
 	if (err != NULL)
-		ft_printf("%s\n", err);
+		ft_printf("ERROR : %s\n", err);
 	else
-		ft_printf("erreur inconnu\n");
+		ft_printf("ERROR : erreur inconnu\n");
 
 	if (game != NULL)
 		ft_free(game);

@@ -6,7 +6,7 @@
 #    By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 10:04:23 by aherrman          #+#    #+#              #
-#    Updated: 2023/06/07 11:07:55 by aherrman         ###   ########.fr        #
+#    Updated: 2023/06/07 16:59:06 by aherrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,37 +33,47 @@ CFLAGS = -g3 -Wall -Werror -Wextra
 
 RM = rm -rf
 
-INC = ./src/libft/libft.a\
+LIBS = src/libft/libft.a .mlx42/build/libmlx42.a -lglfw -L"/Users/aherrman/.brew/opt/glfw/lib/"
+INC = -I .mlx42/include
 
 
 .c.o:
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) $(INC) -c $< -o $(<:.c=.o)
 
 all:	$(NAME)
 
 $(NAME):	$(OBJS) 
 	make all -C ./src/libft
-	gcc $(FLAG) $(OBJS) $(INC) -o $(NAME)
+	make -C ./.mlx42/build
+	gcc $(FLAG) $(OBJS) $(LIBS) -o $(NAME)
 
 debug:	$(OBJS)
 	make all -C ./src/libft
-	gcc $(FLAG) -fsanitize=address $(OBJS) $(INC) -o $(NAME)
+	make -C ./.mlx42/build
+	gcc $(FLAG) -fsanitize=address $(OBJS) $(LIBS) -o $(NAME)
 
 test: $(OBJS) $(OBJST)
 	make all -C ./src/libft
-	gcc $(FLAG) $(OBJS) $(OBJST) $(INC) -o $(NAME)
+	make -C ./.mlx42/build
+	gcc $(FLAG) $(OBJS) $(OBJST) $(LIBS) -o $(NAME)
 	
 testd: $(OBJS) $(OBJST)
 	make all -C ./src/libft
-	gcc $(FLAG) -fsanitize=address $(OBJS) $(OBJST) $(INC) -o $(NAME)
+	make -C ./.mlx42/build
+	gcc $(FLAG) -fsanitize=address $(OBJS) $(OBJST) $(LIBS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)
 	$(RM) $(OBJST)
+	make clean -C ./.mlx42/build
 	make clean -C ./src/libft
 
 
 fclean:	clean
 	$(RM) $(NAME)
 	make fclean -C ./src/libft
+	make clean -C ./.mlx42/build
+	
 re:	fclean all
+
+ret: fclean test

@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 09:48:41 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/07 11:40:03 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/07 19:54:25 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,10 @@ int	main(int ac, char **av)
 	game = malloc(sizeof(t_game));
 	ft_ini_game(game);
 	ft_valid_game(av[1],game);
+	//mlx init
+	//mlx texture && gestion
+	// mlx hook keys
+	// mlx loop
 	ft_free(game);
 	system("leaks so_long");
 	return (0);
