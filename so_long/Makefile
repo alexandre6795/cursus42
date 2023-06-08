@@ -6,7 +6,7 @@
 #    By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 10:04:23 by aherrman          #+#    #+#              #
-#    Updated: 2023/06/07 16:59:06 by aherrman         ###   ########.fr        #
+#    Updated: 2023/06/08 16:47:02 by aherrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,11 @@ SRCS =	so_long.c\
 		ft_valid_map.c\
 		ft_so_long_utils.c\
 		ft_flood_fill.c\
+		ft_utils_mlx.c\
+		ft_utils2_mlx.c\
+		ft_utils_display.c\
+		ft_utils2_display.c \
+		
 		
 SRCST = ft_print_char_tab.c\
 		ft_print_map.c\

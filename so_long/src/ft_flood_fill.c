@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:21:29 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/07 14:45:21 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/08 14:39:09 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,7 @@ void	ft_flood_fill(t_game *game)
 	copy = ft_copy_tab(game->map, game->msize->x, game->msize->y);
 	msize = *game->msize;
 	cur = *game->pos;
-	printf("cur %d %d msize %d %d\n", cur.x, cur.y, msize.x, msize.y);
-	ft_print_char_tab(copy);
 	fill(copy, msize, cur);
-	ft_print_char_tab(copy);
 	ft_valid_road(copy, game);
 	ft_free_char_tab(copy);
 }

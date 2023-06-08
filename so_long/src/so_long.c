@@ -6,11 +6,11 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 09:48:41 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/07 19:54:25 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/08 17:42:59 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"	
+#include "so_long.h"
 
 void	ft_init_temp(t_temp *temp)
 {
@@ -40,7 +40,7 @@ void	ft_ini_game(t_game *game)
 	game->pos->y = 0;
 	game->map = NULL;
 }
-void	ft_valid_game(char *av,t_game *game)
+void	ft_valid_game(char *av, t_game *game)
 {
 	t_temp	temp;
 	int		fd;
@@ -48,8 +48,8 @@ void	ft_valid_game(char *av,t_game *game)
 
 	fd = open(av, O_RDONLY);
 	if (fd < 0)
-	ft_error("file not found", game);
-	len = ft_size(fd); 
+		ft_error("file not found", game);
+	len = ft_size(fd);
 	game->msize->x = len;
 	temp.i.t0 = 0;
 	game->map = malloc(sizeof(char *) * (len + 1));
@@ -65,8 +65,8 @@ void	ft_valid_game(char *av,t_game *game)
 	}
 	free(temp.s.s0);
 	close(fd);
-	ft_valid_fl(game,len-1);
-	ft_valid_other(game, len-1);
+	ft_valid_fl(game, len - 1);
+	ft_valid_other(game, len - 1);
 }
 
 int	ft_valid_ag(char *av)
@@ -85,16 +85,24 @@ int	ft_valid_ag(char *av)
 int	main(int ac, char **av)
 {
 	t_game *game;
+	mlx_t *mlx;
+	t_mlx *pic;
 
 	ft_valid_av(ac, av);
 	game = malloc(sizeof(t_game));
 	ft_ini_game(game);
-	ft_valid_game(av[1],game);
-	//mlx init
-	//mlx texture && gestion
-	// mlx hook keys
-	// mlx loop
+	ft_valid_game(av[1], game);
+	pic = (t_mlx *)malloc(sizeof(t_mlx));
+	ft_init_pic(pic);
+	if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
+		ft_error("can t open game sorry :/", game);
+	ft_create_word(pic, game, mlx);
+	//mlx_loop_hook(mlx,ft_hook,mlx);
+	mlx_loop(mlx);
+	//ft_clean(pic,mlx);
+	mlx_terminate(mlx);
 	ft_free(game);
+	ft_freep(pic);
 	system("leaks so_long");
 	return (0);
 }
