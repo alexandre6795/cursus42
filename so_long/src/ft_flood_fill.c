@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:21:29 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/08 14:39:09 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/13 10:48:08 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,6 @@ void	ft_flood_fill(t_game *game)
 	cur = *game->pos;
 	fill(copy, msize, cur);
 	ft_valid_road(copy, game);
+	
 	ft_free_char_tab(copy);
 }

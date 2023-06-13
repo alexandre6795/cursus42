@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 09:48:41 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/08 17:42:59 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:44:08 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	ft_ini_game(t_game *game)
 	game->P = 0;
 	game->Q = 0;
 	game->E = 0;
+	game->step = 0;
+	game->collected = 0;
 	game->msize->x = 0;
 	game->pos->x = 0;
 	game->msize->y = 0;
@@ -94,15 +96,16 @@ int	main(int ac, char **av)
 	ft_valid_game(av[1], game);
 	pic = (t_mlx *)malloc(sizeof(t_mlx));
 	ft_init_pic(pic);
-	if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
+	if (!(mlx = mlx_init(32 * game->msize->y, 32 * game->msize->x, "MLX42",
+				true)))
 		ft_error("can t open game sorry :/", game);
+mlx_set_setting(MLX_STRETCH_IMAGE,true);
 	ft_create_word(pic, game, mlx);
 	//mlx_loop_hook(mlx,ft_hook,mlx);
 	mlx_loop(mlx);
-	//ft_clean(pic,mlx);
+	ft_clean(pic,mlx);
 	mlx_terminate(mlx);
 	ft_free(game);
-	ft_freep(pic);
 	system("leaks so_long");
 	return (0);
 }

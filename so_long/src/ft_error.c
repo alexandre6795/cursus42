@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 14:44:03 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/08 17:55:41 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:18:26 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,27 @@ void	ft_freep(t_mlx *pic)
 void	ft_init_pic(t_mlx *pic)
 {
 	pic->CC = (mlx_image_t *)malloc(sizeof(mlx_image_t));
+	pic->CC2 = (mlx_image_t *)malloc(sizeof(mlx_image_t));
+	pic->CC3 = (mlx_image_t *)malloc(sizeof(mlx_image_t));
 	pic->QQ = (mlx_image_t *)malloc(sizeof(mlx_image_t));
 	pic->EE = (mlx_image_t *)malloc(sizeof(mlx_image_t));
+	pic->EE2 = (mlx_image_t *)malloc(sizeof(mlx_image_t));
 	pic->PP = (mlx_image_t *)malloc(sizeof(mlx_image_t));
+	pic->PP2 = (mlx_image_t *)malloc(sizeof(mlx_image_t));
 	pic->WALL = (mlx_image_t *)malloc(sizeof(mlx_image_t));
+	pic->WALL2 = (mlx_image_t *)malloc(sizeof(mlx_image_t));
 	pic->FLOOR = (mlx_image_t *)malloc(sizeof(mlx_image_t));
 	pic->FLOOR2 = (mlx_image_t *)malloc(sizeof(mlx_image_t));
 	pic->t_CC = (mlx_texture_t *)malloc(sizeof(mlx_texture_t));
+	pic->t_CC2 = (mlx_texture_t *)malloc(sizeof(mlx_texture_t));
+	pic->t_CC3 = (mlx_texture_t *)malloc(sizeof(mlx_texture_t));
 	pic->t_QQ = (mlx_texture_t *)malloc(sizeof(mlx_texture_t));
 	pic->t_EE = (mlx_texture_t *)malloc(sizeof(mlx_texture_t));
+	pic->t_EE2 = (mlx_texture_t *)malloc(sizeof(mlx_texture_t));
 	pic->t_PP = (mlx_texture_t *)malloc(sizeof(mlx_texture_t));
 	pic->t_WALL = (mlx_texture_t *)malloc(sizeof(mlx_texture_t));
+	pic->t_PP2 = (mlx_texture_t *)malloc(sizeof(mlx_texture_t));
+	pic->t_WALL2 = (mlx_texture_t *)malloc(sizeof(mlx_texture_t));
 	pic->t_FLOOR = (mlx_texture_t *)malloc(sizeof(mlx_texture_t));
 	pic->t_FLOOR2 = (mlx_texture_t *)malloc(sizeof(mlx_texture_t));
 }

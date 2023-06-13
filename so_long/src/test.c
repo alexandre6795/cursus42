@@ -56,6 +56,8 @@ int32_t	main(int32_t argc, const char *argv[])
 	mlx_t *mlx;
 	mlx_texture_t *texture;
 	mlx_image_t *img;
+		mlx_texture_t *texture2;
+	mlx_image_t *img2;
 
 	// Gotta error check this stuff
 	if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
@@ -77,12 +79,21 @@ int32_t	main(int32_t argc, const char *argv[])
 		printf("noimage");
 	if (mlx_image_to_window(mlx, img, 200, 200) < 0)
 		printf("noimageonwindow");
+	texture2 = mlx_load_png("../img/Pickle.png");
+	if (!texture2)
+		printf("notexture");
+	img2 = mlx_texture_to_image(mlx, texture2);
+	if (!img)
+		printf("noimage");
+	if (mlx_image_to_window(mlx, img2, 180, 180) < 0)
+		printf("noimageonwindow");
 	if (mlx_image_to_window(mlx, image, 0, 0) == -1)
 	{
 		mlx_close_window(mlx);
 		puts(mlx_strerror(mlx_errno));
 		return (EXIT_FAILURE);
 	}
+	texture2 = mlx_load_png("../img/Pickle.png");
 
 	mlx_loop_hook(mlx, ft_randomize, mlx);
 	mlx_loop_hook(mlx, ft_hook, mlx);
