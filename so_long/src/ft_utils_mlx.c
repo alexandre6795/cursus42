@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 09:48:41 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/13 17:43:03 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/16 13:59:57 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_image(t_mlx *pic, mlx_t *mlx)
 	pic->QQ = mlx_texture_to_image(mlx, pic->t_QQ);
 	if (!pic->QQ)
 		return (1);
-	pic->CC= mlx_texture_to_image(mlx, pic->t_CC);
+	pic->CC = mlx_texture_to_image(mlx, pic->t_CC);
 	if (!pic->CC)
 		return (1);
 	pic->CC2 = mlx_texture_to_image(mlx, pic->t_CC2);
@@ -64,8 +64,8 @@ int	ft_image(t_mlx *pic, mlx_t *mlx)
 	pic->EE = mlx_texture_to_image(mlx, pic->t_EE);
 	if (!pic->EE)
 		return (1);
-		if(ft_image2(pic,mlx)==1)
-		return(1);
+	if (ft_image2(pic, mlx) == 1)
+		return (1);
 	return (0);
 }
 
@@ -80,7 +80,7 @@ int	ft_texture(t_mlx *pic)
 	pic->t_EE2 = mlx_load_png("img/e1.png");
 	if (!pic->t_EE2)
 		return (1);
-	pic->t_CC = mlx_load_png("img/c4.png");
+	pic->t_CC = mlx_load_png("img/c1.png");
 	if (!pic->t_CC)
 		return (1);
 	pic->t_CC2 = mlx_load_png("img/c2.png");
@@ -92,34 +92,27 @@ int	ft_texture(t_mlx *pic)
 	pic->t_PP = mlx_load_png("img/p1.png");
 	if (!pic->t_PP)
 		return (1);
-		if(ft_texture2(pic)==1)
-		return(1);
+	if (ft_texture2(pic) == 1)
+		return (1);
 	return (0);
 }
 
-void	ft_hook(void *param, t_game *game)
+void	ft_keyhook(mlx_key_data_t keydata, void *param)
 {
-	mlx_t	*mlx;
+	t_game	*game;
 
-	mlx = param;
-	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
-		mlx_close_window(mlx);
-	if (mlx_is_key_down(mlx, MLX_KEY_W) && game->pos->x - 1 != '1')
-	{
-		game->pos->x -= 1;
-	}
-	if (mlx_is_key_down(mlx, MLX_KEY_S) && game->pos->x + 1 != '1')
-	{
-		game->pos->x += 1;
-	}
-	if (mlx_is_key_down(mlx, MLX_KEY_A) && game->pos->y - 1 != '1')
-	{
-		game->pos->y -= 1;
-	}
-	if (mlx_is_key_down(mlx, MLX_KEY_D) && game->pos->y + 1 != '1')
-	{
-		game->pos->y += 1;
-	}
+	game = param;
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+		mlx_close_window(game->mlx);
+	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
+		ft_mv_up(game);
+	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
+		ft_mv_dw(game);
+	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
+		ft_mv_lf(game);
+	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
+		ft_mv_rt(game);
+	ft_anim_on_key(game);
 }
 void	ft_create_word(t_mlx *pic, t_game *game, mlx_t *mlx)
 {

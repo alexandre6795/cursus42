@@ -6,7 +6,7 @@
 #    By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 10:04:23 by aherrman          #+#    #+#              #
-#    Updated: 2023/06/08 16:47:02 by aherrman         ###   ########.fr        #
+#    Updated: 2023/06/14 11:07:19 by aherrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS =	so_long.c\
 		ft_utils2_mlx.c\
 		ft_utils_display.c\
 		ft_utils2_display.c \
+		ft_anim.c\
 		
 		
 SRCST = ft_print_char_tab.c\

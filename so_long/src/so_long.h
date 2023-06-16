@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:22:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/13 16:33:04 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/16 11:34:18 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,6 @@ typedef struct s_pos
 	int				x;
 	int				y;
 }					t_pos;
-typedef struct s_game
-{
-	char			**map;
-	int				C;
-	int				P;
-	int				E;
-	int				Q;
-	int				GC;
-	int				step;
-	int				collected;
-	t_pos			*pos;
-	t_pos			*msize;
-}					t_game;
 typedef struct s_mlx
 {
 	mlx_image_t		*QQ;
@@ -96,6 +83,23 @@ typedef struct s_mlx
 	mlx_texture_t	*t_FLOOR2;
 
 }					t_mlx;
+
+typedef struct s_game
+{
+	char			**map;
+	int				C;
+	int				P;
+	int				E;
+	int				Q;
+	int				GC;
+	int				step;
+	int				collected;
+	t_pos			*pos;
+	t_pos			*msize;
+	t_pos			*mpos;
+	t_mlx			*pic;
+	mlx_t *mlx;
+}	t_game;
 //ft_valid_av.c//
 void				ft_valid_av(int ac, char **av);
 void				ft_n1l(int i, t_game *game);
@@ -107,21 +111,23 @@ void				ft_freep(t_mlx *pic);
 //ft_valid_map.c//
 void				ft_valid_fl(t_game *game, int len);
 void				ft_valid_other(t_game *game, int fd);
-int					ft_size(int fd);
+int					ft_size(int fd,t_game *game);
 //ft_so_long_utils.c//
 void				ft_add_heros_pos(t_game *game, int x, int y);
 //ft_flood_fill//
 void				ft_flood_fill(t_game *game);
 
 //ft_utils_mlx.c//
-void				ft_hook(void *param, t_game *game);
+void				ft_keyhook(mlx_key_data_t keydata,void * param);
 void				ft_create_word(t_mlx *pic, t_game *game, mlx_t *mlx);
+int	ft_image(t_mlx *pic, mlx_t *mlx);
 //ft_utils2_mlx.c//
 void				ft_clean(t_mlx *pic, mlx_t *mlx);
 void				ft_clean2(t_mlx *pic, mlx_t *mlx);
 int					ft_valid_car(char c);
 int					ft_image2(t_mlx *pic, mlx_t *mlx);
 int					ft_texture2(t_mlx *pic);
+int	ft_display(t_mlx *pic, mlx_t *mlx, t_game *g);
 //ft_utils2_display.c//
 int					ft_displayQ(t_mlx *pic, mlx_t *mlx, t_temp temp,
 						t_game *game);
@@ -133,9 +139,17 @@ int					ft_displayP(t_mlx *pic, mlx_t *mlx, t_temp temp,
 						t_game *game);
 int					ft_displayC(t_mlx *pic, mlx_t *mlx, t_temp temp,
 						t_game *game);
+int	ft_display(t_mlx *pic, mlx_t *mlx, t_game *g);
 //ft_utils2_display.c//
 int					ft_displayF(t_mlx *pic, mlx_t *mlx, t_game *game,
 						t_temp temp);
+void						ft_mv_up(t_game *game);
+void ft_mv_lf(t_game *game);
+void ft_mv_dw(t_game *game);
+void ft_mv_rt(t_game *game);
+
+// ft_anim.c
+void ft_anim_on_key(t_game *game);
 
 // /!\ file for make test /!\ ///
 //ft_print_map.c//

@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 14:44:03 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/13 16:18:26 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/16 11:40:03 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ void	ft_free(t_game *game)
 				free(game->map[i]);
 				i++;
 			}
-		free(game->map);
+		if(game->map != NULL)
+			free(game->map);
 		free(game->pos);
+		free(game->mpos);
 		free(game->msize);
 		free(game);
 	}

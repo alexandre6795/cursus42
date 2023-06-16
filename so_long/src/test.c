@@ -47,6 +47,7 @@ void	ft_hook(void *param)
 		image->instances[0].x -= 5;
 	if (mlx_is_key_down(mlx, MLX_KEY_D))
 		image->instances[0].x += 5;
+	printf("x = %d y = %d\n", image->instances[0].x, image->instances[0].y);
 }
 
 // -----------------------------------------------------------------------------

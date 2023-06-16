@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 10:09:45 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/13 11:23:29 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/16 11:34:57 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	ft_valid_other(t_game *game, int len)
 	ft_v(game);
 }
 
-int	ft_size(int fd)
+int	ft_size(int fd,t_game *game)
 {
 	int i;
 	char *s;
@@ -113,7 +113,9 @@ int	ft_size(int fd)
 	while (1)
 	{
 		s = get_next_line(t);
-		if (s == NULL)
+		if (i == 0 && s == NULL)
+			ft_error("empty file", game);
+		else if (s == NULL)
 			break ;
 		else
 			i++;

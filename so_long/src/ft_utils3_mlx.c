@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils_mlx.c                                     :+:      :+:    :+:   */
+/*   ft_utils3_mlx.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 09:48:41 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/13 15:49:01 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/16 11:23:31 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,8 @@ int	ft_display(t_mlx *pic, mlx_t *mlx, t_game *g)
 	while (t.i.t0 < g->msize->x && (g->map[t.i.t0][0] != '\n'))
 	{
 		t.i.t1 = 0;
-		while (g->map[t.i.t0][t.i.t1] == 'C' || g->map[t.i.t0][t.i.t1] == 'E'
-			|| g->map[t.i.t0][t.i.t1] == 'Q' || g->map[t.i.t0][t.i.t1] == 'P'
-			|| g->map[t.i.t0][t.i.t1] == '1' || g->map[t.i.t0][t.i.t1] == '0')
+		while (g->map[t.i.t0][t.i.t1])
 		{
-			printf("t0 = %ld t1 = %ld\n", t.i.t0, t.i.t1);
 			if (g->map[t.i.t0][t.i.t1] == 'C')
 				t.i.t3 = ft_displayC(pic, mlx, t, g);
 			if (g->map[t.i.t0][t.i.t1] == 'E')
@@ -94,31 +91,6 @@ int	ft_texture(t_mlx *pic)
 	if (!pic->t_FLOOR2)
 		return (1);
 	return (0);
-}
-
-void	ft_hook(void *param, t_game *game)
-{
-	mlx_t	*mlx;
-
-	mlx = param;
-	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
-		mlx_close_window(mlx);
-	if (mlx_is_key_down(mlx, MLX_KEY_W) && game->pos->x - 1 != '1')
-	{
-		game->pos->x -= 1;
-	}
-	if (mlx_is_key_down(mlx, MLX_KEY_S) && game->pos->x + 1 != '1')
-	{
-		game->pos->x += 1;
-	}
-	if (mlx_is_key_down(mlx, MLX_KEY_A) && game->pos->y - 1 != '1')
-	{
-		game->pos->y -= 1;
-	}
-	if (mlx_is_key_down(mlx, MLX_KEY_D) && game->pos->y + 1 != '1')
-	{
-		game->pos->y += 1;
-	}
 }
 void	ft_create_word(t_mlx *pic, t_game *game, mlx_t *mlx)
 {

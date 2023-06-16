@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:46:23 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/07 10:56:59 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/16 10:32:31 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,6 @@
 	printf("msize->y = %d\n",game->msize->y);
 	printf("pos->x = %d\n",game->pos->x);
 	printf("pos->y = %d\n",game->pos->y);
+		printf("mpos->x = %d\n",game->mpos->x);
+	printf("mpos->y = %d\n",game->mpos->y);
 }
