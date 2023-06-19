@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 11:07:13 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/15 14:21:58 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/19 11:29:02 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,40 @@
 
 int	ft_image2(t_mlx *pic, mlx_t *mlx)
 {
-	pic->EE2 = mlx_texture_to_image(mlx, pic->t_EE2);
-	if (!pic->EE2)
+	pic->ee2 = mlx_texture_to_image(mlx, pic->t_ee2);
+	if (!pic->ee2)
 		return (1);
-	pic->WALL = mlx_texture_to_image(mlx, pic->t_WALL);
-	if (!pic->WALL)
+	pic->wall = mlx_texture_to_image(mlx, pic->t_wall);
+	if (!pic->wall)
 		return (1);
-	pic->WALL2 = mlx_texture_to_image(mlx, pic->t_WALL2);
-	if (!pic->WALL2)
+	pic->wall2 = mlx_texture_to_image(mlx, pic->t_wall2);
+	if (!pic->wall2)
 		return (1);
-	pic->FLOOR = mlx_texture_to_image(mlx, pic->t_FLOOR);
-	if (!pic->FLOOR)
+	pic->floor = mlx_texture_to_image(mlx, pic->t_floor);
+	if (!pic->floor)
 		return (1);
-	pic->FLOOR2 = mlx_texture_to_image(mlx, pic->t_FLOOR2);
-	if (!pic->FLOOR2)
+	pic->floor2 = mlx_texture_to_image(mlx, pic->t_floor2);
+	if (!pic->floor2)
 		return (1);
 	return (0);
 }
 
 int	ft_texture2(t_mlx *pic)
 {
-	pic->t_PP2 = mlx_load_png("img/p2.png");
-	if (!pic->t_PP2)
+	pic->t_pp2 = mlx_load_png("img/p2.png");
+	if (!pic->t_pp2)
 		return (1);
-	pic->t_WALL = mlx_load_png("img/w1.png");
-	if (!pic->t_WALL)
+	pic->t_wall = mlx_load_png("img/w1.png");
+	if (!pic->t_wall)
 		return (1);
-	pic->t_WALL2 = mlx_load_png("img/w2.png");
-	if (!pic->t_WALL2)
+	pic->t_wall2 = mlx_load_png("img/w2.png");
+	if (!pic->t_wall2)
 		return (1);
-	pic->t_FLOOR = mlx_load_png("img/floor1.png");
-	if (!pic->t_FLOOR)
+	pic->t_floor = mlx_load_png("img/floor1.png");
+	if (!pic->t_floor)
 		return (1);
-	pic->t_FLOOR2 = mlx_load_png("img/floor2.png");
-	if (!pic->t_FLOOR2)
+	pic->t_floor2 = mlx_load_png("img/floor2.png");
+	if (!pic->t_floor2)
 		return (1);
 	return (0);
 }
@@ -61,56 +61,57 @@ int	ft_valid_car(char c)
 
 void	ft_clean2(t_mlx *pic, mlx_t *mlx)
 {
-	if (pic->t_EE)
-		mlx_delete_texture(pic->t_EE);
-	if (pic->EE)
-		mlx_delete_image(mlx, pic->EE);
-	if (pic->t_EE2)
-		mlx_delete_texture(pic->t_EE2);
-	if (pic->EE2)
-		mlx_delete_image(mlx, pic->EE2);
-	if (pic->WALL)
-		mlx_delete_image(mlx, pic->WALL);
-	if (pic->t_WALL)
-		mlx_delete_texture(pic->t_WALL);
-	if (pic->WALL2)
-		mlx_delete_image(mlx, pic->WALL2);
-	if (pic->t_WALL2)
-		mlx_delete_texture(pic->t_WALL2);
-	if (pic->FLOOR)
-		mlx_delete_image(mlx, pic->FLOOR);
-	if (pic->t_FLOOR)
-		mlx_delete_texture(pic->t_FLOOR);
-	if (pic->t_FLOOR2)
-		mlx_delete_texture(pic->t_FLOOR2);
-	if (pic->FLOOR2)
-		mlx_delete_image(mlx, pic->FLOOR2);
+	if (pic->t_ee)
+		mlx_delete_texture(pic->t_ee);
+	if (pic->ee)
+		mlx_delete_image(mlx, pic->ee);
+	if (pic->t_ee2)
+		mlx_delete_texture(pic->t_ee2);
+	if (pic->ee2)
+		mlx_delete_image(mlx, pic->ee2);
+	if (pic->wall)
+		mlx_delete_image(mlx, pic->wall);
+	if (pic->t_wall)
+		mlx_delete_texture(pic->t_wall);
+	if (pic->wall2)
+		mlx_delete_image(mlx, pic->wall2);
+	if (pic->t_wall2)
+		mlx_delete_texture(pic->t_wall2);
+	if (pic->floor)
+		mlx_delete_image(mlx, pic->floor);
+	if (pic->t_floor)
+		mlx_delete_texture(pic->t_floor);
+	if (pic->t_floor2)
+		mlx_delete_texture(pic->t_floor2);
+	if (pic->floor2)
+		mlx_delete_image(mlx, pic->floor2);
 }
+
 void	ft_clean(t_mlx *pic, mlx_t *mlx)
 {
-	if (pic->QQ)
-		mlx_delete_image(mlx, pic->QQ);
-	if (pic->t_QQ)
-		mlx_delete_texture(pic->t_QQ);
-	if (pic->CC)
-		mlx_delete_image(mlx, pic->CC);
-	if (pic->t_CC)
-		mlx_delete_texture(pic->t_CC);
-	if (pic->CC2)
-		mlx_delete_image(mlx, pic->CC2);
-	if (pic->t_CC2)
-		mlx_delete_texture(pic->t_CC2);
-	if (pic->CC3)
-		mlx_delete_image(mlx, pic->CC3);
-	if (pic->t_CC3)
-		mlx_delete_texture(pic->t_CC3);
-	if (pic->t_PP)
-		mlx_delete_texture(pic->t_PP);
-	if (pic->PP)
-		mlx_delete_image(mlx,pic->PP);
-	if (pic->t_PP2)
-		mlx_delete_texture(pic->t_PP2);
-	if (pic->PP2)
-		mlx_delete_image(mlx, pic->PP2);
-	ft_clean2(pic, mlx);
+	if (pic->qq)
+		mlx_delete_image(mlx, pic->qq);
+	if (pic->t_qq)
+		mlx_delete_texture(pic->t_qq);
+	if (pic->cc)
+		mlx_delete_image(mlx, pic->cc);
+	if (pic->t_cc)
+		mlx_delete_texture(pic->t_cc);
+	if (pic->cc2)
+		mlx_delete_image(mlx, pic->cc2);
+	if (pic->t_cc2)
+		mlx_delete_texture(pic->t_cc2);
+	if (pic->cc3)
+		mlx_delete_image(mlx, pic->cc3);
+	if (pic->t_cc3)
+		mlx_delete_texture(pic->t_cc3);
+	if (pic->t_pp)
+		mlx_delete_texture(pic->t_pp);
+	if (pic->pp)
+		mlx_delete_image(mlx, pic->pp);
+	if (pic->t_pp2)
+		mlx_delete_texture(pic->t_pp2);
+	if (pic->pp2)
+		mlx_delete_image(mlx, pic->pp2);
+	ft_clean2 (pic, mlx);
 }

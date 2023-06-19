@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 10:09:45 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/16 11:34:57 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/19 10:56:25 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@ int	ft_needline(t_game *game, int i, int j)
 		game->E++;
 		return (1);
 	}
-		if(game->map[i][j] == '0' || game->map[i][j] == '1'
+	if (game->map[i][j] == '0' || game->map[i][j] == '1'
 			|| (game->map[i][j] == '\n') || game->map[i][j] == '\0')
 		return (1);
-
 	return (0);
 }
 
@@ -76,6 +75,7 @@ void	ft_valid_fl(t_game *game, int len)
 		i++;
 	}
 }
+
 void	ft_valid_other(t_game *game, int len)
 {
 	t_temp	temp;
@@ -102,11 +102,11 @@ void	ft_valid_other(t_game *game, int len)
 	ft_v(game);
 }
 
-int	ft_size(int fd,t_game *game)
+int	ft_size(int fd, t_game *game)
 {
-	int i;
-	char *s;
-	int t;
+	int		i;
+	char	*s;
+	int		t;
 
 	t = fd;
 	i = 0;

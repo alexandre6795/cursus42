@@ -6,16 +6,17 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:21:29 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/14 10:25:55 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/19 10:14:00 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-char **ft_copy_tab( char **tab, int c, int len)
+
+char	**ft_copy_tab( char **tab, int c, int len)
 {
-	char **copy;
-	int i;
-	int j;
+	char	**copy;
+	int		i;
+	int		j;
 
 	i = 0;
 	copy = malloc(sizeof(char *) * (c + 1));
@@ -35,7 +36,7 @@ char **ft_copy_tab( char **tab, int c, int len)
 	return (copy);
 }
 
-void ft_free_char_tab(char **s)
+void	ft_free_char_tab(char **s)
 {
 	int	i;
 
@@ -89,15 +90,14 @@ void	fill(char **map, t_pos msize, t_pos cur)
 
 void	ft_flood_fill(t_game *game)
 {
-	char **copy;
-	t_pos msize;
-	t_pos cur;
-	
+	char	**copy;
+	t_pos	msize;
+	t_pos	cur;
+
 	copy = ft_copy_tab(game->map, game->msize->x, game->msize->y);
 	msize = *game->msize;
 	cur = *game->pos;
 	fill(copy, msize, cur);
 	ft_valid_road(copy, game);
-	
 	ft_free_char_tab(copy);
 }

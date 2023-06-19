@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 09:48:41 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/16 11:23:31 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/19 11:10:40 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ int	ft_display(t_mlx *pic, mlx_t *mlx, t_game *g)
 		while (g->map[t.i.t0][t.i.t1])
 		{
 			if (g->map[t.i.t0][t.i.t1] == 'C')
-				t.i.t3 = ft_displayC(pic, mlx, t, g);
+				t.i.t3 = ft_displayc(pic, mlx, t, g);
 			if (g->map[t.i.t0][t.i.t1] == 'E')
-				t.i.t3 = ft_displayE(pic, mlx, t, g);
+				t.i.t3 = ft_displaye(pic, mlx, t, g);
 			if (g->map[t.i.t0][t.i.t1] == 'Q')
-				t.i.t3 = ft_displayQ(pic, mlx, t, g);
+				t.i.t3 = ft_displayq(pic, mlx, t, g);
 			if (g->map[t.i.t0][t.i.t1] == 'P')
-				t.i.t3 = ft_displayP(pic, mlx, t, g);
+				t.i.t3 = ft_displayp(pic, mlx, t, g);
 			if (g->map[t.i.t0][t.i.t1] == '1')
 				t.i.t3 = ft_display1(pic, mlx, t, g);
 			if (g->map[t.i.t0][t.i.t1] == '0')
-				t.i.t3 = ft_displayF(pic, mlx, g, t);
+				t.i.t3 = ft_displayf(pic, mlx, g, t);
 			t.i.t1++;
 		}
 		t.i.t0++;
@@ -92,6 +92,7 @@ int	ft_texture(t_mlx *pic)
 		return (1);
 	return (0);
 }
+
 void	ft_create_word(t_mlx *pic, t_game *game, mlx_t *mlx)
 {
 	if (ft_texture(pic) != 0)
