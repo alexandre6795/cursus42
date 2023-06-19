@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 10:09:45 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/19 10:56:25 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/19 15:11:08 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int	ft_needline(t_game *game, int i, int j)
 		ft_error("not only wall around map", NULL);
 	if (game->map[i][j] == 'C')
 	{
-		game->C++;
+		game->c++;
 		return (1);
 	}
 	if (game->map[i][j] == 'E')
 	{
-		game->E++;
+		game->e++;
 		return (1);
 	}
 	if (game->map[i][j] == '0' || game->map[i][j] == '1'
@@ -34,15 +34,15 @@ int	ft_needline(t_game *game, int i, int j)
 
 void	ft_v(t_game *game)
 {
-	if (game->C == 0)
+	if (game->c == 0)
 		ft_error("no coin", game);
-	if (game->E == 0)
+	if (game->e == 0)
 		ft_error("no exit", game);
-	if (game->P == 0)
+	if (game->p == 0)
 		ft_error("heros are in an other castel", game);
-	if (game->E > 1)
+	if (game->e > 1)
 		ft_error("more one exit", game);
-	if (game->P > 1)
+	if (game->p > 1)
 		ft_error("only one heros in this game", game);
 	ft_flood_fill(game);
 }
@@ -97,7 +97,7 @@ void	ft_valid_other(t_game *game, int len)
 				ft_error("caractere not valid", game);
 			ft_n1l(temp.i.t3, game);
 		}
-		game->Q += temp.i.t3;
+		game->q += temp.i.t3;
 	}
 	ft_v(game);
 }

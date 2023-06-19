@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:22:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/19 14:11:43 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:05:16 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ typedef struct s_mlx
 	mlx_image_t		*wall2;
 	mlx_image_t		*floor;
 	mlx_image_t		*floor2;
+	mlx_image_t		*img;
+	mlx_image_t		*img2;
 	mlx_texture_t	*t_qq;
 	mlx_texture_t	*t_cc;
 	mlx_texture_t	*t_cc2;
@@ -128,6 +130,8 @@ int					ft_valid_car(char c);
 int					ft_image2(t_mlx *pic, mlx_t *mlx);
 int					ft_texture2(t_mlx *pic);
 int					ft_display(t_mlx *pic, mlx_t *mlx, t_game *g);
+//ft_utils3_mlx.c//
+void				ft_print_step(t_game *game);
 //ft_utils2_display.c//
 int					ft_displayq(t_mlx *pic, mlx_t *mlx, t_temp temp,
 						t_game *game);

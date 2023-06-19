@@ -6,7 +6,7 @@
 #    By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 10:04:23 by aherrman          #+#    #+#              #
-#    Updated: 2023/06/14 11:07:19 by aherrman         ###   ########.fr        #
+#    Updated: 2023/06/19 15:38:28 by aherrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS =	so_long.c\
 		ft_flood_fill.c\
 		ft_utils_mlx.c\
 		ft_utils2_mlx.c\
+		ft_utils3_mlx.c\
 		ft_utils_display.c\
 		ft_utils2_display.c \
 		ft_anim.c\

@@ -8,6 +8,14 @@
 		"string": "c",
 		"string_view": "c",
 		"bitset": "c",
-		"so_long.h": "c"
+		"so_long.h": "c",
+		"__hash_table": "c",
+		"__split_buffer": "c",
+		"array": "c",
+		"initializer_list": "c",
+		"iterator": "c",
+		"unordered_map": "c",
+		"utility": "c",
+		"vector": "c"
 	}
 }

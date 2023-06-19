@@ -6,13 +6,13 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 09:48:41 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/19 11:10:40 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:31:59 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_display(t_mlx *pic, mlx_t *mlx, t_game *g)
+int	ft_display0(t_mlx *pic, mlx_t *mlx, t_game *g)
 {
 	t_temp	t;
 
@@ -41,64 +41,66 @@ int	ft_display(t_mlx *pic, mlx_t *mlx, t_game *g)
 	return (t.i.t3);
 }
 
-int	ft_image(t_mlx *pic, mlx_t *mlx)
+int	ft_image0(t_mlx *pic, mlx_t *mlx)
 {
-	pic->CC = mlx_texture_to_image(mlx, pic->t_CC);
-	if (!pic->CC)
+	pic->cc = mlx_texture_to_image(mlx, pic->t_cc);
+	if (!pic->cc)
 		return (1);
-	pic->EE = mlx_texture_to_image(mlx, pic->t_EE);
-	if (!pic->EE)
+	pic->ee = mlx_texture_to_image(mlx, pic->t_ee);
+	if (!pic->ee)
 		return (1);
-	pic->PP = mlx_texture_to_image(mlx, pic->t_PP);
-	if (!pic->PP)
+	pic->pp = mlx_texture_to_image(mlx, pic->t_pp);
+	if (!pic->pp)
 		return (1);
-	pic->QQ = mlx_texture_to_image(mlx, pic->t_QQ);
-	if (!pic->QQ)
+	pic->qq = mlx_texture_to_image(mlx, pic->t_qq);
+	if (!pic->qq)
 		return (1);
-	pic->WALL = mlx_texture_to_image(mlx, pic->t_WALL);
-	if (!pic->WALL)
+	pic->wall = mlx_texture_to_image(mlx, pic->t_wall);
+	if (!pic->wall)
 		return (1);
-	pic->FLOOR = mlx_texture_to_image(mlx, pic->t_FLOOR);
-	if (!pic->FLOOR)
+	pic->floor = mlx_texture_to_image(mlx, pic->t_floor);
+	if (!pic->floor)
 		return (1);
-	pic->FLOOR2 = mlx_texture_to_image(mlx, pic->t_FLOOR2);
-	if (!pic->FLOOR2)
+	pic->floor2 = mlx_texture_to_image(mlx, pic->t_floor2);
+	if (!pic->floor2)
 		return (1);
 	return (0);
 }
 
-int	ft_texture(t_mlx *pic)
+int	ft_texture0(t_mlx *pic)
 {
-	pic->t_CC = mlx_load_png("img/w2.png");
-	if (!pic->t_CC)
+	pic->t_cc = mlx_load_png("img/w2.png");
+	if (!pic->t_cc)
 		return (1);
-	pic->t_EE = mlx_load_png("img/c2.png");
-	if (!pic->t_EE)
+	pic->t_ee = mlx_load_png("img/c2.png");
+	if (!pic->t_ee)
 		return (1);
-	pic->t_QQ = mlx_load_png("img/q1.png");
-	if (!pic->t_QQ)
+	pic->t_qq = mlx_load_png("img/q1.png");
+	if (!pic->t_qq)
 		return (1);
-	pic->t_PP = mlx_load_png("img/p1.png");
-	if (!pic->t_PP)
+	pic->t_pp = mlx_load_png("img/p1.png");
+	if (!pic->t_pp)
 		return (1);
-	pic->t_WALL = mlx_load_png("img/w1.png");
-	if (!pic->t_WALL)
+	pic->t_wall = mlx_load_png("img/w1.png");
+	if (!pic->t_wall)
 		return (1);
-	pic->t_FLOOR = mlx_load_png("img/floor1.png");
-	if (!pic->t_FLOOR)
+	pic->t_floor = mlx_load_png("img/floor1.png");
+	if (!pic->t_floor)
 		return (1);
-	pic->t_FLOOR2 = mlx_load_png("img/floor2.png");
-	if (!pic->t_FLOOR2)
+	pic->t_floor2 = mlx_load_png("img/floor2.png");
+	if (!pic->t_floor2)
 		return (1);
 	return (0);
 }
 
-void	ft_create_word(t_mlx *pic, t_game *game, mlx_t *mlx)
+void	ft_print_step(t_game *game)
 {
-	if (ft_texture(pic) != 0)
-		ft_error("trouble in create texture", game);
-	if (ft_image(pic, mlx) != 0)
-		ft_error("trouble in create texture", game);
-	if (ft_display(pic, mlx, game) != 0)
-		ft_error("can t display picture", game);
+	char	*str;
+	char	*step;
+
+	step = ft_itoa(game->step);
+	str = ft_strjoin("step : ", step);
+	mlx_put_string(game->mlx, str, 0, 0);
+	free(str);
+	free(step);
 }

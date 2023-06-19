@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 11:05:58 by aherrman          #+#    #+#             */
-/*   Updated: 2023/06/19 14:20:53 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:29:11 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_nline(t_game *game)
 		}
 		else if (game->map[game->mpos->x][game->mpos->y] == 'Q')
 		{
-			printf("You lose !\n");
+			printf("insert coin for restart\n");
 			mlx_close_window(game->mlx);
 		}
 		else if (game->map[game->mpos->x][game->mpos->y] == '0')
@@ -43,7 +43,6 @@ void	ft_nline(t_game *game)
 
 void	ft_del(t_game *game)
 {
-	game->pos->y = 0;
 	mlx_delete_image(game->mlx, game->pic->cc);
 	mlx_delete_image(game->mlx, game->pic->cc2);
 	mlx_delete_image(game->mlx, game->pic->cc3);
@@ -86,4 +85,5 @@ void	ft_anim_on_key(t_game *game)
 	}
 	ft_image(game->pic, game->mlx);
 	ft_display(game->pic, game->mlx, game);
+	ft_print_step(game);
 }
