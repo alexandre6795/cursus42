@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 17:04:45 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/05 14:34:00 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/12 11:11:37 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
-
+//*****MORE&MORE*****//
+void				ft_print_tab(char **tab);
 #endif

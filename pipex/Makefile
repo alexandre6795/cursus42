@@ -6,7 +6,7 @@
 #    By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 10:04:23 by aherrman          #+#    #+#              #
-#    Updated: 2023/07/07 13:51:31 by aherrman         ###   ########.fr        #
+#    Updated: 2023/07/17 16:40:53 by aherrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ SRCS =	pipex.c\
 		error.c\
 		utils_list.c\
 		fork.c\
+		ft_utils.c\
+		utils2.c\
 		
 SRCST = ft_print_list.c\
 

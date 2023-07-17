@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:11:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/05/30 09:15:13 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/17 16:17:40 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static size_t	ft_count(char const *s, char c)
 	return (nb_word);
 }
 
-static char	**ft_free(char **word)
+void	ft_free_split(char **word)
 {
 	size_t	i;
 
@@ -69,7 +69,6 @@ static char	**ft_free(char **word)
 			i++;
 	}
 	free(word);
-	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -90,7 +89,7 @@ char	**ft_split(char const *s, char c)
 		word[x] = ft_word(s, c, x);
 		if (word[x] == 0)
 		{
-			ft_free(word);
+			ft_free_split(word);
 			return (0);
 		}
 		x++;

@@ -6,16 +6,14 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 12:09:15 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/07 14:11:27 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:11:04 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void ft_init_t_struc(t_pipex *a)
+void	ft_init_t_struc(t_pipex *a)
 {
-	
-	a->str = NULL;
 	a->f1 = NULL;
 	a->f2 = NULL;
 	a->len = 0;
@@ -38,13 +36,20 @@ void	ft_init_temp(t_temp *temp)
 	temp->s.s3 = NULL;
 }
 
-int main (int ac, char **av,char **env)
+int	main(int ac, char **av, char **env)
 {
-	t_pipex *cmd;
+	t_pipex	*cmd;
 	cmd = malloc(sizeof(t_pipex));
-    ft_valid_av(ac,av);
+	ft_valid_av(ac, av);
 	ft_init_t_struc(cmd);
-	ft_arg_to_cmd(ac,av,env,cmd);
-	ft_fork(cmd,ac-1,ac-2);
+	ft_arg_to_cmd(ac, av, env, cmd);
+	     if (cmd->len == 2)
+	      	ft_fork(cmd, ac - 3, cmd->len);
+	    else
+	   	ft_fork(cmd, ac - 3, ac-3);
+	 ft_fc(cmd);
+	ft_free(cmd);
 	return (0);
 }
+
+

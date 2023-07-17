@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+         #
+#    By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 15:45:26 by aherrman          #+#    #+#              #
-#    Updated: 2023/05/09 14:49:26 by aherrman         ###   ########.fr        #
+#    Updated: 2023/07/11 10:29:12 by aherrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,7 @@ SRCS = ft_isalpha.c \
 	  pft_compteur.c\
 	  get_next_line.c\
 	  get_next_line_utils.c\
+	  ft_print_tab.c\
 
 SRCS_BONUS = ft_lstnew_bonus.c\
 			 ft_lstadd_front_bonus.c\

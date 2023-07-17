@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_print_tab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 14:28:12 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/17 15:34:53 by aherrman         ###   ########.fr       */
+/*   Created: 2023/07/11 10:29:14 by aherrman          #+#    #+#             */
+/*   Updated: 2023/07/17 16:52:51 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_print_tab(char **tab)
 {
-	char	*copy;
-	size_t	rlen;
+	int	i;
 
-	if (!s1 || !s2)
-		return (0);
-	rlen = (ft_strlen(s1) + ft_strlen(s2)+1);
-	copy = malloc(sizeof(*s1) * rlen);
-	if (copy == 0)
-		return (0);
-	ft_strlcpy(copy, s1, rlen);
-	ft_strlcat(copy, s2, rlen);
-	return (copy);
+	i = 0;
+	if (tab)
+	{
+		while (tab[i])
+		{
+			fprintf(stderr,"tab[%d] = %s len = %zu\n", i, tab[i], ft_strlen(tab[i]));
+			i++;
+		}
+		printf("size = %d\n", i);
+	}
+	else
+		printf("tab is NULL\n");
 }

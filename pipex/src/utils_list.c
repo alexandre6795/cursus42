@@ -6,20 +6,22 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:56:33 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/07 11:21:44 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:14:14 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void ft_lstadd_back_pipex(t_pipex *list, t_lst *new)
+void	ft_lstadd_back_pipex(t_pipex *list, t_lst *new)
 {
-	t_lst *a;
+	t_lst	*a;
+
 	if (!(list->lst))
 	{
 		list->lst = new;
 		new->next = NULL;
-		return;
+		new->prev = NULL;
+		return ;
 	}
 	a = list->lst;
 	while (a && a->next != NULL)
@@ -29,48 +31,52 @@ void ft_lstadd_back_pipex(t_pipex *list, t_lst *new)
 	if (new)
 	{
 		new->next = NULL;
+		new->prev = a;
 	}
 	a->next = new;
 }
 
-t_lst *ft_new_elem_pipex(char **arv, char *cmd)
+t_lst	*ft_new_elem_pipex(char **arv, char *cmd)
 {
-	t_lst *new;
+	t_lst	*new;
 
 	new = (t_lst *)malloc(sizeof(t_lst));
 	if (new == NULL)
 		return (NULL);
-	// printf("cmd = %s\n",cmd);
-	new->arv = ft_d(arv);
+	new->arv = ft_d(arv, cmd);
 	new->cmd = cmd;
 	new->next = (NULL);
+	new->prev = (NULL);
 	return (new);
 }
-char **ft_d(char **s)
+
+char	**ft_d(char **s, char *cmd)
 {
-	int i;
-	int j;
-	char **str;
+	int		i;
+	int		j;
+	char	**str;
 
 	i = 0;
 	j = 1;
 	while (s[i] != NULL)
 		i++;
-	str = malloc(sizeof(char *) * i);
-	i = 0;
+	str = ft_calloc(i+2,sizeof(char *));
+	str[0] = ft_strdup(cmd);
+	i = 1;
 	while (s[j])
 	{
 		str[i] = ft_strdup(s[j]);
 		i++;
 		j++;
 	}
+	str[i] = NULL;
 	return (str);
 }
 
-void ft_del_last(t_pipex *cmd)
+void	ft_del_last(t_pipex *cmd)
 {
-	t_lst *a;
-	t_lst *b;
+	t_lst	*a;
+	t_lst	*b;
 
 	a = cmd->lst;
 	b = cmd->lst;
@@ -88,4 +94,19 @@ void ft_del_last(t_pipex *cmd)
 		b->next = NULL;
 	}
 	free(a);
+}
+
+int	ft_lst_len(t_pipex *cmd)
+{
+	int		i;
+	t_lst	*a;
+
+	i = 0;
+	a = cmd->lst;
+	while (a)
+	{
+		i++;
+		a = a->next;
+	}
+	return (i);
 }
