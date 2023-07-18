@@ -6,7 +6,7 @@
 #    By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 10:04:23 by aherrman          #+#    #+#              #
-#    Updated: 2023/07/17 16:40:53 by aherrman         ###   ########.fr        #
+#    Updated: 2023/07/18 10:48:08 by aherrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,35 +39,35 @@ INC = -I
 
 
 .c.o:
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 all:	$(NAME)
 
 $(NAME):	$(OBJS) 
-	make all -C ./src/libft
-	gcc $(FLAG) $(OBJS) $(LIBS) -o $(NAME)
+	@make all -C ./src/libft
+	@gcc $(FLAG) $(OBJS) $(LIBS) -o $(NAME)
 
 debug:	$(OBJS)
-	make all -C ./src/libft
-	gcc $(FLAG) -fsanitize=address $(OBJS) $(LIBS) -o $(NAME)
+	@make all -C ./src/libft
+	@gcc $(FLAG) -fsanitize=address $(OBJS) $(LIBS) -o $(NAME)
 
 test: $(OBJS) $(OBJST)
-	make all -C ./src/libft
-	gcc $(FLAG) $(OBJS) $(OBJST) $(LIBS) -o $(NAME)
+	@make all -C ./src/libft
+	@gcc $(FLAG) $(OBJS) $(OBJST) $(LIBS) -o $(NAME)
 	
 testd: $(OBJS) $(OBJST)
-	make all -C ./src/libft
-	gcc $(FLAG) -fsanitize=address $(OBJS) $(OBJST) $(LIBS) -o $(NAME)
+	@make all -C ./src/libft
+	@gcc $(FLAG) -fsanitize=address $(OBJS) $(OBJST) $(LIBS) -o $(NAME)
 
 clean:
-	$(RM) $(OBJS)
-	$(RM) $(OBJST)
-	make clean -C ./src/libft
+	@$(RM) $(OBJS)
+	@$(RM) $(OBJST)
+	@make clean -C ./src/libft
 
 
 fclean:	clean
 	$(RM) $(NAME)
-	make fclean -C ./src/libft
+	@make fclean -C ./src/libft
 	
 re:	fclean all
 

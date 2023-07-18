@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:22:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/17 14:44:01 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/18 12:04:19 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void				ft_arg_to_cmd(int ac, char **av, char **env, t_pipex *cmd);
 //***** ERROR *****//
 void				ft_error(char *str, t_pipex *cmd);
 void				ft_free(t_pipex *cmd);
-void ft_fc(t_pipex *cmd);
+void				ft_free_list(t_lst *lst);
+void				ft_fc(t_pipex *cmd);
 //***** UTILS_LIST *****//
 void				ft_lstadd_back_pipex(t_pipex *list, t_lst *new);
 t_lst				*ft_new_elem_pipex(char **arv, char *cmd);
@@ -93,11 +94,11 @@ void				redir_output(int input_fd, t_pipex *cmd);
 void				close_pipes(int nbpipes, int **pipefd, int i);
 void				close_mpipes(int nbpipes, int **pipefd, int nbprocess);
 //***** UTILS2 *****//
-int				ft_child_process(t_pipex *cmd, int **pipefd, int i);
+int					ft_child_process(t_pipex *cmd, int **pipefd, int i);
 void				ft_parent_process(t_pipex *cmd, int nbpipes, int **pipefd,
 						int nbprocess);
 //***** FORK *****//
-void				ft_fork(t_pipex *cmd, int process,int nbpipe);
+void				ft_fork(t_pipex *cmd, int process, int nbpipe);
 //***** TEST *****//
 void				ft_print_list(t_lst *list);
 int					ft_lst_range(t_lst *lst);

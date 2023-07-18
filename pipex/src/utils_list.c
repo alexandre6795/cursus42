@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:56:33 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/17 17:14:14 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:15:03 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ t_lst	*ft_new_elem_pipex(char **arv, char *cmd)
 {
 	t_lst	*new;
 
-	new = (t_lst *)malloc(sizeof(t_lst));
+	new = malloc(sizeof(t_lst));
 	if (new == NULL)
 		return (NULL);
 	new->arv = ft_d(arv, cmd);
-	new->cmd = cmd;
+	new->cmd = arv[0];
 	new->next = (NULL);
 	new->prev = (NULL);
 	return (new);
@@ -60,16 +60,17 @@ char	**ft_d(char **s, char *cmd)
 	j = 1;
 	while (s[i] != NULL)
 		i++;
-	str = ft_calloc(i+2,sizeof(char *));
+	str = ft_calloc(i+1,sizeof(char *));
 	str[0] = ft_strdup(cmd);
+	//str[0] = cmd;
 	i = 1;
 	while (s[j])
 	{
 		str[i] = ft_strdup(s[j]);
+		//str[i] = s[j];
 		i++;
 		j++;
 	}
-	str[i] = NULL;
 	return (str);
 }
 

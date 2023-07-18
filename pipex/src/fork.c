@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 13:46:45 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/17 16:29:03 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/18 11:15:38 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@ void	for_free(int *pids, int **pipefd, int nbpipes)
 {
 	int	i;
 
-(void)nbpipes;
 	i = 0;
+	while (i < nbpipes)
+	{
+		free(pipefd[i]);
+		i++;
+	}
 	if (pids)
 		free(pids);
-	if (pipefd)
-	free(pipefd);
+		free(pipefd);
 }
 
 int	*ft_m(int nbprocess, t_pipex *cmd)

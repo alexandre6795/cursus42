@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 13:54:11 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/17 17:14:30 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:03:29 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	ft_test_access(t_pipex *cmd)
 
 void	ft_path(char **env, t_pipex *cmd, char **av, int ac)
 {
-	int	i;
+	int		i;
+	char	*temp;
 
 	i = 0;
 	while (env[i])
@@ -53,13 +54,13 @@ void	ft_path(char **env, t_pipex *cmd, char **av, int ac)
 	i = 0;
 	while (cmd->path[i])
 	{
+		temp = cmd->path[i];
 		cmd->path[i] = ft_strjoin(cmd->path[i], "/");
+		free(temp);
 		i++;
 	}
 	cmd->f1 = malloc(sizeof(t_file));
 	cmd->f2 = malloc(sizeof(t_file));
-	cmd->f1->file = malloc(sizeof(char) * ft_strlen(av[1]));
-	cmd->f2->file = malloc(sizeof(char) * ft_strlen(av[ac - 1]));
 	cmd->f1->file = av[1];
 	cmd->f2->file = av[ac - 1];
 }
@@ -86,29 +87,35 @@ void	ft_list(int ac, char **av, t_pipex *cmd)
 		str = ft_split(av[i], ' ');
 		ft_lstadd_back_pipex(cmd, ft_new_elem_pipex(str, str[0]));
 		j = 0;
-		while (str[j])
-		{
-			free(str[j]);
-			j++;
-		}
+		  while (str[j])
+		  {
+		   	free(str[j]);
+		    	j++;
+		  }
 		free(str);
 		i++;
 	}
+	//ft_print_list(cmd->lst);
 	ft_del_last(cmd);
 }
 
-void		ft_arg_to_cmd(int ac, char **av, char **env, t_pipex *cmd)
+void	ft_arg_to_cmd(int ac, char **av, char **env, t_pipex *cmd)
 {
+	char	*tmp;
+	char	*tmp2;
+
 	ft_list(ac, av, cmd);
 	ft_path(env, cmd, av, ac);
-	cmd->f1->fd = open(ft_strjoin("files/", cmd->f1->file), O_RDONLY);
+	tmp = ft_strjoin("files/", cmd->f1->file);
+	cmd->f1->fd = open(tmp, O_RDONLY);
 	if (cmd->f1->fd == -1)
 		ft_error("open input failed", cmd);
-	cmd->f2->fd = open(ft_strjoin("files/", cmd->f2->file),
-						O_WRONLY | O_CREAT | O_TRUNC,
-						0666);
+	tmp2 = ft_strjoin("files/", cmd->f2->file);
+	cmd->f2->fd = open(tmp2, O_WRONLY | O_CREAT | O_TRUNC, 0666);
 	if (cmd->f2->fd == -1)
 		ft_error("open result failed", cmd);
 	ft_test_access(cmd);
 	cmd->len = ft_lst_len(cmd);
+	free(tmp);
+	free(tmp2);
 }

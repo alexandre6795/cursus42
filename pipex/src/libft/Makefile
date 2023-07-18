@@ -6,7 +6,7 @@
 #    By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 15:45:26 by aherrman          #+#    #+#              #
-#    Updated: 2023/07/11 10:29:12 by aherrman         ###   ########.fr        #
+#    Updated: 2023/07/18 10:47:35 by aherrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,23 +84,23 @@ CFLAGS += -Wall -Werror -Wextra
 RM = rm -rf
 
 .c.o:
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 all	:	$(NAME)
 
 $(NAME)	:	$(OBJS) $(OBJS_BONUS)
-	ar rc $(NAME) $(OBJS) $(OBJS_BONUS)
-	ranlib $(NAME)
+	@ar rc $(NAME) $(OBJS) $(OBJS_BONUS)
+	@ranlib $(NAME)
 
 clean	:	
-	$(RM) $(OBJS)
-	$(RM) $(OBJS_BONUS)
+	@$(RM) $(OBJS)
+	@$(RM) $(OBJS_BONUS)
 
 fclean	:	clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re	:	fclean all
 
 bonus : $(OBJS_BONUS)
-	ar rc $(NAME) $(OBJS_BONUS)
-	ranlib $(NAME)
+	@ar rc $(NAME) $(OBJS_BONUS)
+	@ranlib $(NAME)

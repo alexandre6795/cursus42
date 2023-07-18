@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 12:09:15 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/17 17:11:04 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:08:54 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int ac, char **av, char **env)
 	      	ft_fork(cmd, ac - 3, cmd->len);
 	    else
 	   	ft_fork(cmd, ac - 3, ac-3);
-	 ft_fc(cmd);
+	ft_fc(cmd);
 	ft_free(cmd);
 	return (0);
 }
