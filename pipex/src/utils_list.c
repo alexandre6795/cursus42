@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:56:33 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/18 15:15:03 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/18 17:32:58 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,10 @@ char	**ft_d(char **s, char *cmd)
 		i++;
 	str = ft_calloc(i+1,sizeof(char *));
 	str[0] = ft_strdup(cmd);
-	//str[0] = cmd;
 	i = 1;
 	while (s[j])
 	{
 		str[i] = ft_strdup(s[j]);
-		//str[i] = s[j];
 		i++;
 		j++;
 	}

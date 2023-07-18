@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 13:54:11 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/18 15:03:29 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/18 17:50:20 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ void	ft_list(int ac, char **av, t_pipex *cmd)
 		free(str);
 		i++;
 	}
-	//ft_print_list(cmd->lst);
 	ft_del_last(cmd);
 }
 
@@ -104,6 +103,9 @@ void	ft_arg_to_cmd(int ac, char **av, char **env, t_pipex *cmd)
 	char	*tmp;
 	char	*tmp2;
 
+	(void) tmp;
+	(void) tmp2;
+	(void) env;
 	ft_list(ac, av, cmd);
 	ft_path(env, cmd, av, ac);
 	tmp = ft_strjoin("files/", cmd->f1->file);
