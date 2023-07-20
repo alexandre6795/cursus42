@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:56:33 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/18 17:32:58 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/20 09:45:22 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_lst	*ft_new_elem_pipex(char **arv, char *cmd)
 	if (new == NULL)
 		return (NULL);
 	new->arv = ft_d(arv, cmd);
-	new->cmd = arv[0];
+	new->cmd = (NULL);
 	new->next = (NULL);
 	new->prev = (NULL);
 	return (new);
@@ -60,10 +60,10 @@ char	**ft_d(char **s, char *cmd)
 	j = 1;
 	while (s[i] != NULL)
 		i++;
-	str = ft_calloc(i+1,sizeof(char *));
+	str = ft_calloc(i + 1, sizeof(char *));
 	str[0] = ft_strdup(cmd);
 	i = 1;
-	while (s[j])
+	while (s[j] != NULL)
 	{
 		str[i] = ft_strdup(s[j]);
 		i++;
@@ -76,7 +76,9 @@ void	ft_del_last(t_pipex *cmd)
 {
 	t_lst	*a;
 	t_lst	*b;
+	int		i;
 
+	i = 0;
 	a = cmd->lst;
 	b = cmd->lst;
 	while (a && a->next != NULL)
@@ -85,13 +87,15 @@ void	ft_del_last(t_pipex *cmd)
 		a = a->next;
 	}
 	if (a == cmd->lst)
-	{
 		cmd->lst = NULL;
-	}
 	else
-	{
 		b->next = NULL;
+	while (a->arv[i] != NULL)
+	{
+		free(a->arv[i]);
+		i++;
 	}
+	free(a->arv);
 	free(a);
 }
 

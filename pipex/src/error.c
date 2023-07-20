@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 14:41:12 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/18 17:48:32 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/19 16:07:47 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_free_list(t_lst *lst)
 		tmp = lst;
 		while (tmp)
 		{
+			i = 0;
 			tmp2 = tmp->next;
 			while (tmp->arv[i] != NULL)
 			{
@@ -31,7 +32,8 @@ void	ft_free_list(t_lst *lst)
 				i++;
 			}
 			free(tmp->arv);
-			free(tmp->cmd);
+			if (tmp->cmd != NULL)
+				free(tmp->cmd);
 			free(tmp);
 			tmp = tmp2;
 		}
@@ -56,7 +58,8 @@ void	ft_free(t_pipex *cmd)
 		free(cmd->path[i]);
 		i++;
 	}
-	ft_free_list(cmd->lst);
+	if (cmd->lst)
+		ft_free_list(cmd->lst);
 	ft_free2(cmd);
 }
 
@@ -66,9 +69,11 @@ void	ft_error(char *str, t_pipex *cmd)
 		ft_printf("unknow error\n");
 	else
 		ft_printf("%s\n", str);
-	ft_free(cmd);
+	if (cmd)
+		ft_free(cmd);
 	exit(1);
 }
+
 void	ft_fc(t_pipex *cmd)
 {
 	if (!cmd->lst)

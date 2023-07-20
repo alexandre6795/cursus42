@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:22:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/18 12:04:19 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/20 09:37:11 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,14 @@ typedef struct s_pipex
 }					t_pipex;
 void				ft_init_t_struc(t_pipex *a);
 //***** PROTOTYPE *****//
-void				ft_valid_av(int ac, char **av);
+void				ft_valid_av(int ac, char **av, t_pipex *cmd);
 void				ft_arg_to_cmd(int ac, char **av, char **env, t_pipex *cmd);
 //***** ERROR *****//
 void				ft_error(char *str, t_pipex *cmd);
 void				ft_free(t_pipex *cmd);
 void				ft_free_list(t_lst *lst);
 void				ft_fc(t_pipex *cmd);
+void				ft_free_access(t_lst *a, t_pipex *cmd);
 //***** UTILS_LIST *****//
 void				ft_lstadd_back_pipex(t_pipex *list, t_lst *new);
 t_lst				*ft_new_elem_pipex(char **arv, char *cmd);
@@ -102,4 +103,7 @@ void				ft_fork(t_pipex *cmd, int process, int nbpipe);
 //***** TEST *****//
 void				ft_print_list(t_lst *list);
 int					ft_lst_range(t_lst *lst);
+void				ft_free_list2(t_lst *lst);
+void				ft_f(t_pipex *cmd);
+void				ft_op(t_pipex *cmd);
 #endif

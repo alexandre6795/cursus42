@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 12:09:15 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/18 17:49:27 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/20 09:39:01 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,17 @@ void	ft_init_temp(t_temp *temp)
 int	main(int ac, char **av, char **env)
 {
 	t_pipex	*cmd;
+
 	cmd = malloc(sizeof(t_pipex));
-	ft_valid_av(ac, av);
+	ft_valid_av(ac, av, cmd);
 	ft_init_t_struc(cmd);
 	ft_arg_to_cmd(ac, av, env, cmd);
-	     if (cmd->len == 2)
-	      	ft_fork(cmd, ac - 3, cmd->len);
-	    else
-	   	ft_fork(cmd, ac - 3, ac-3);
+	cmd->len = ft_lst_len(cmd);
+	if (cmd->len == 2)
+		ft_fork(cmd, ac - 3, cmd->len);
+	else
+		ft_fork(cmd, ac - 3, ac - 3);
 	ft_fc(cmd);
 	ft_free(cmd);
 	return (0);
 }
-
-

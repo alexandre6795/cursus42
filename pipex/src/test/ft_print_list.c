@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 12:41:04 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/17 16:53:09 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/19 15:31:56 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@ void	ft_print_list(t_lst *lst)
 
 	list = lst;
 	i = ft_lst_range(list);
-	printf("range = %d\n", i);
+	ft_printf("range = %d\n", i);
 	while (list && i > 0)
 	{
-		printf("cmd = %s\n   [", list->cmd);
+		ft_printf("cmd = %s\n   [", list->cmd);
 		j = 0;
 		while (list->arv[j])
 		{
-			printf("arv[%d] = %s ", j, list->arv[j]);
+			ft_printf("arv[%d] = %s ", j, list->arv[j]);
 			j++;
 		}
-		printf("]\n");
+		ft_printf("]\n");
 		i--;
 		list = list->next;
 	}

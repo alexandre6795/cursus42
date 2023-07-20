@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 10:29:14 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/17 16:52:51 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/19 15:31:50 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	ft_print_tab(char **tab)
 	{
 		while (tab[i])
 		{
-			fprintf(stderr,"tab[%d] = %s len = %zu\n", i, tab[i], ft_strlen(tab[i]));
+			ft_printf("tab[%d] = %s len = %d\n", i, tab[i], ft_strlen(tab[i]));
 			i++;
 		}
-		printf("size = %d\n", i);
+		ft_printf("size = %d\n", i);
 	}
 	else
-		printf("tab is NULL\n");
+		ft_printf("tab is NULL\n");
 }
