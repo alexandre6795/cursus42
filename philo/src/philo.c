@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 12:04:57 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/31 14:52:24 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/07/31 15:04:06 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,14 @@ int	main(int ac, char **av)
 	 t_philo *philo;
 
 	 philo = malloc(sizeof(t_philo));
+	 //valid agruments (only number and other)
 	 philo->error += ft_valid_ar(ac, av,philo);
+	 //valid struct and tab inside and prepare value (micro sec to ms)
 	   philo->error += ft_av_to_tab(ac, av, philo);
+	   //valid value inside tab and give value on philo struct
 	   philo->error += ft_valid_tab(philo);
 	   // ft_print_all(philo);
+	   //threard create and join
 	    philo->error += ft_philo(philo);
 	  ft_free(philo);
 	return(0);
