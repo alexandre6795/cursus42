@@ -6,7 +6,7 @@
 #    By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 10:04:23 by aherrman          #+#    #+#              #
-#    Updated: 2023/07/27 14:19:08 by aherrman         ###   ########.fr        #
+#    Updated: 2023/08/02 14:03:23 by aherrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ SRCS =	philo.c\
 		ft_put.c\
 		ft_mem.c\
 		ft_routine.c\
+		ft_mourur.c\
+		ft_printf.c\
 
 OBJST = $(addprefix src/test/,$(SRCST:.c=.o))
 

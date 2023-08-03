@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:16:07 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/27 10:20:12 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/08/03 10:06:55 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ size_t	ft_strlen(const char *c)
 	}
 	return (i);
 }
+
 size_t	ft_strlcpy(char *dest, const char *src, size_t len)
 {
 	size_t	i;

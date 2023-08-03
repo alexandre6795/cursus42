@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 14:47:36 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/31 10:34:33 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/08/03 10:09:32 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 void	ft_l_init(t_philo *philo, int i)
 {
 	philo->data[i]->eatcount = 0;
-	if (philo->data[i]->rank % 2 == 0)
-		philo->data[i]->status = 0;
-	else
-		philo->data[i]->status = 1;
+	philo->data[i]->lasteat = 0;
 	philo->data[i]->nb_philo = 0;
+	philo->data[i]->d = 0;
 }
+
 void	ft_steal_init(t_philo *philo, int i)
 {
 	if (philo->nb_philo == 1)
@@ -28,9 +27,13 @@ void	ft_steal_init(t_philo *philo, int i)
 	else
 	{
 		if (i == 0)
+		{
 			philo->data[i]->steal = philo->data[philo->nb_philo - 1]->fork;
+		}
 		else
+		{
 			philo->data[i]->steal = philo->data[i - 1]->fork;
+		}
 	}
 	philo->data[i]->time = ft_real_time();
 }
@@ -50,6 +53,7 @@ int	ft_is_valid(char *s)
 	}
 	return (0);
 }
+
 int	ft_for_line(t_philo *philo, int i)
 {
 	if (philo->data[i]->t_die <= 0 || philo->data[i]->t_die > philo->imax
@@ -69,15 +73,14 @@ int	ft_for_line(t_philo *philo, int i)
 
 void	ft_timer(int time_ms)
 {
-	int i;
-	struct timeval start;
-	struct timeval end;
-	i = 0;
-	gettimeofday(&start, NULL);
-	while (i < time_ms)
+	long long	start_time;
+	long long	actual_time;
+
+	start_time = ft_real_time();
+	actual_time = 0;
+	while (actual_time - start_time < time_ms)
 	{
-		gettimeofday(&end, NULL);
-		i = (end.tv_sec - start.tv_sec) * 1000 + (end.tv_usec - start.tv_usec)
-			/ 1000;
+		usleep(250);
+		actual_time = ft_real_time();
 	}
 }

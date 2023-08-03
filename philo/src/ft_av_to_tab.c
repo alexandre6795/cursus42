@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 12:13:28 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/31 14:53:11 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/08/03 10:15:15 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	ft_init_real_value(t_philo *philo)
 		ft_steal_init(philo, i);
 		i++;
 	}
+	i = 0;
+	ft_mutex(philo);
 	return (0);
 }
 
@@ -54,6 +56,7 @@ int	ft_valid_ar(int ac, char **av, t_philo *philo)
 	}
 	return (0);
 }
+
 int	ft_add_tab(t_philo *philo, char **av, int i, int ac)
 {
 	if (philo->error > 0)
@@ -73,6 +76,7 @@ int	ft_add_tab(t_philo *philo, char **av, int i, int ac)
 		philo->data[i]->eatneed = -1;
 	return (0);
 }
+
 int	ft_valid_tab(t_philo *philo)
 {
 	int	i;

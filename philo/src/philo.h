@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:22:34 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/31 10:29:05 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/08/03 10:19:02 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 //***** LIB *****//
 # include <fcntl.h>
 # include <pthread.h>
+# include <stdarg.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -63,8 +64,11 @@ typedef struct s_data
 	int				nb_philo;
 	long int		time;
 	long int		start;
+	long int		lasteat;
+	int				d;
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	*steal;
+	pthread_mutex_t	*printf;
 }					t_data;
 
 typedef struct s_philo
@@ -86,6 +90,8 @@ void				ft_free(t_philo *philo);
 int					ft_error(char *s);
 //***** ft_philo.c *****//
 int					ft_philo(t_philo *philo);
+pthread_t			ft_mourur(t_philo *philo);
+int					ft_mutex(t_philo *philo);
 //***** ft_utils.c *****//
 int					ft_is_valid(char *s);
 int					ft_for_line(t_philo *philo, int i);
@@ -119,4 +125,6 @@ void				ft_sleep(t_data *philo);
 void				ft_eat(t_data *philo);
 void				ft_print(int i, long int time, int status);
 void				ft_think(t_data *philo);
+
+int					ft_printf(const char *format, ...);
 #endif
