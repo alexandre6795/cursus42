@@ -1,15 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_one_lint.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:01:29 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/12 11:38:22 by aherrman         ###   ########.fr       */
+/*   Updated: 2023/05/30 09:12:18 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
 
 static	void	ft_tri(const char *str, int *signe, int *i)
 {
@@ -18,19 +17,16 @@ static	void	ft_tri(const char *str, int *signe, int *i)
 	{
 		(*i)++;
 	}
-	if (str[*i] == '-')
+	if (str[0] == '-')
 	{
 	*signe *= -1;
 	(*i)++;
 	}
-	else if (str[*i] == '+')
-		(*i)++
-			
-			
-			;
+	else if (str[0] == '+')
+		(*i)++;
 }
 
-int	ft_atoi(const char *str)
+long int	ft_atoi_one_lint(const char *str)
 {
 	int			signe;
 	int			i;

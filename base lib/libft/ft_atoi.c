@@ -6,7 +6,7 @@
 /*   By: aherrman <aherrman@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:01:29 by aherrman          #+#    #+#             */
-/*   Updated: 2023/07/12 11:38:22 by aherrman         ###   ########.fr       */
+/*   Updated: 2022/11/15 09:02:07 by aherrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"libft.h"
@@ -24,10 +24,7 @@ static	void	ft_tri(const char *str, int *signe, int *i)
 	(*i)++;
 	}
 	else if (str[*i] == '+')
-		(*i)++
-			
-			
-			;
+		(*i)++;
 }
 
 int	ft_atoi(const char *str)
